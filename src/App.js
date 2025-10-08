@@ -14,6 +14,7 @@ function App() {
   const [isSending, setIsSending] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
 
+  const assetUrl = (relativePath) => `${process.env.PUBLIC_URL}${relativePath}`;
 
   const [zoomedImage, setZoomedImage] = useState(null);
 
@@ -61,15 +62,15 @@ function App() {
       ],
       photos: [
         {
-          url: "/about_me_pic.png",
+          url: assetUrl("/about_me_pic.png"),
           caption: "Portfolio Website Hero Section - Clean, professional design with accessibility features",
         },
         {
-          url: "/InvestEDU/investedhome.png",
+          url: assetUrl("/InvestEDU/investedhome.png"),
           caption: "Portfolio Website Project Gallery - Showcasing featured projects and research",
         },
         {
-          url: "/InvestEDU/investedinfo.png",
+          url: assetUrl("/InvestEDU/investedinfo.png"),
           caption: "Portfolio Website Modal System - Detailed project information with interactive galleries",
         },
       ],
@@ -93,16 +94,16 @@ function App() {
       tags: ["React", "JS", "CSS", "Financial Education"],
       details: "### Techniques Implemented:\n- Desmos API Integration for Interactive Graph\n- SVG Graph for main simulator output\n- Vercel Deployment\n- Use of A=Pe^(rt) for compounded money calculations\n\n### Key Features:\n- Interactive budgeting simulator with real-time feedback\n- Investment scenario builder with market data\n- Progress tracking with achievement badges\n- Community challenge boards\n\n### Impact & Statistics:\n- 500+ beta users with growing engagement\n- 2.8K monthly views demonstrating strong user interest\n- 40% increase in user engagement through platform improvements\n- 25% improvement in users' financial comprehension scores\n- Interactive financial simulator with personalized quiz system\n- Dynamic budgeting and investing education tools\n- Proven educational effectiveness in financial literacy",
       photos: [
-        { url: "/InvestEDU/investedhome.png", caption: "InvestEDU Home Page - Clean, intuitive interface with modern financial design" },
-        { url: "/InvestEDU/investedhomedesmos.png", caption: "Desmos API Integration - Interactive compound interest visualization and graphing tools" },
-        { url: "/InvestEDU/investedinfo.png", caption: "Investment Education Hub - Comprehensive learning modules for financial literacy" },
-        { url: "/InvestEDU/investedglossary.png", caption: "Financial Glossary - 200+ investment terms explained in simple language" },
-        { url: "/InvestEDU/investedpersonalityquiz.png", caption: "Investor Personality Quiz - Personalized investment strategies based on risk tolerance" },
-        { url: "/InvestEDU/investedbudgetplanner.png", caption: "Budget Planner Tool - Track expenses, income, and savings goals effectively" },
-        { url: "/InvestEDU/investedAI.png", caption: "InvestEDU AI Assistant - 24/7 financial guidance and investment recommendations" },
-        { url: "/InvestEDU/investedcomparison.png", caption: "Investment Comparison Tool - Side-by-side analysis of different investment options" },
-        { url: "/InvestEDU/investedcalculator.png", caption: "Investment Calculator - Real-time compound interest calculations with A=Pe^(rt) formula" },
-        { url: "/InvestEDU/investedu-analytics-dashboard.jpeg", caption: "InvestEDU Analytics Dashboard - Real user engagement metrics showing 2,500+ active users" },
+        { url: assetUrl("/InvestEDU/investedhome.png"), caption: "InvestEDU Home Page - Clean, intuitive interface with modern financial design" },
+        { url: assetUrl("/InvestEDU/investedhomedesmos.png"), caption: "Desmos API Integration - Interactive compound interest visualization and graphing tools" },
+        { url: assetUrl("/InvestEDU/investedinfo.png"), caption: "Investment Education Hub - Comprehensive learning modules for financial literacy" },
+        { url: assetUrl("/InvestEDU/investedglossary.png"), caption: "Financial Glossary - 200+ investment terms explained in simple language" },
+        { url: assetUrl("/InvestEDU/investedpersonalityquiz.png"), caption: "Investor Personality Quiz - Personalized investment strategies based on risk tolerance" },
+        { url: assetUrl("/InvestEDU/investedbudgetplanner.png"), caption: "Budget Planner Tool - Track expenses, income, and savings goals effectively" },
+        { url: assetUrl("/InvestEDU/investedAI.png"), caption: "InvestEDU AI Assistant - 24/7 financial guidance and investment recommendations" },
+        { url: assetUrl("/InvestEDU/investedcomparison.png"), caption: "Investment Comparison Tool - Side-by-side analysis of different investment options" },
+        { url: assetUrl("/InvestEDU/investedcalculator.png"), caption: "Investment Calculator - Real-time compound interest calculations with A=Pe^(rt) formula" },
+        { url: assetUrl("/InvestEDU/investedu-analytics-dashboard.jpeg"), caption: "InvestEDU Analytics Dashboard - Real user engagement metrics showing 2,500+ active users" },
       ],
       links: [
         { label: "Visit InvestEDU Platform", url: "https://investedu.me" },
@@ -125,35 +126,35 @@ function App() {
       details: "### About DCI & Dialysis:\n- Dialysis Clinic, Inc. (DCI) is a leading non-profit provider founded in 1971\n- Operates 250+ clinics nationwide serving 15,000+ patients\n- Dialysis is a life-saving treatment for kidney failure, requiring 4-hour sessions, 3 days per week\n- 32.3% of patients experience significant decline in quality of life after starting treatment\n\n### Our Solution:\n\n**1. Personalized Meal Planning App**\n- AI-powered meal generator tailored to dialysis dietary restrictions\n- 109+ downloads on the App Store\n- Key Features:\n  • Customizable meal plans based on health conditions\n  • Allergy and preference filters\n  • Nutritional information tracking\n\n**2. Appointment Management**\n- Calendar interface for session scheduling\n- Automated notifications and reminders\n- Reduces no-show rates by 30%\n\n**3. Community Awareness**\n- Instagram campaign with 150+ followers\n- Educational content during National Kidney Month\n- Blog platform for patient stories and advice\n\n### Technical Implementation:\n- React Native for cross-platform mobile development\n- Firebase for backend services and authentication\n- HIPAA-compliant data storage\n- Real-time updates and notifications\n\n### DCI Implementation & Results:\n- Successfully implemented across DCI clinics in Tennessee and Georgia\n- 93% reduction in patient session cancellation time (from 3.5 min to 15 sec)\n- Reduced clinic no-show rates from 13% to 2%\n- Improved care for 200+ patients directly\n- Published application to Apple App Store\n- Generated over 4,000 impressions post-launch\n- Integrated AI-driven diet plans and smart scheduling\n- Translated clinical needs into secure and scalable digital tool\n- Led end-to-end development for nation's largest nonprofit dialysis provider",
       photos: [
         {
-          url: "/DECADCI/dci-meeting-screenshot.jpeg",
+          url: assetUrl("/DECADCI/dci-meeting-screenshot.jpeg"),
           caption: "DCI Executive Meeting - Presenting Project CARE implementation strategy to leadership team",
         },
         {
-          url: "/DECADCI/IMG_2568.jpeg",
+          url: assetUrl("/DECADCI/IMG_2568.jpeg"),
           caption: "Project CARE Team at DCI Headquarters - Collaborating with healthcare professionals in Nashville, TN",
         },
         {
-          url: "/DECADCI/3d9812af-e50e-4f84-af6c-8347ee38bb57.jpeg",
+          url: assetUrl("/DECADCI/3d9812af-e50e-4f84-af6c-8347ee38bb57.jpeg"),
           caption: "DCI Clinic Implementation - Training dialysis clinic staff on Project CARE mobile app and systems",
         },
         {
-          url: "/DECADCI/6ae1d092-879f-44f9-bd68-488f85010c5e.jpeg",
+          url: assetUrl("/DECADCI/6ae1d092-879f-44f9-bd68-488f85010c5e.jpeg"),
           caption: "Patient Feedback Session - Gathering user experience data from dialysis patients using Project CARE",
         },
         {
-          url: "/DECADCI/dbd797e3-2049-4a8a-a7e7-c8c294b75cca.jpeg",
+          url: assetUrl("/DECADCI/dbd797e3-2049-4a8a-a7e7-c8c294b75cca.jpeg"),
           caption: "Project CARE Analytics Dashboard - Real-time patient engagement metrics showing 89% satisfaction rate",
         },
         {
-          url: "/DECADCI/project-care-documentation.jpeg",
+          url: assetUrl("/DECADCI/project-care-documentation.jpeg"),
           caption: "DCI Partnership Documentation - Official collaboration agreement for Project CARE implementation",
         },
         {
-          url: "/DECADCI/project-care-mobile-app.jpeg",
+          url: assetUrl("/DECADCI/project-care-mobile-app.jpeg"),
           caption: "Project CARE Mobile App Interface - Meal planning feature designed for dialysis patients",
         },
         {
-          url: "/DECADCI/project-care-impact-report.jpeg",
+          url: assetUrl("/DECADCI/project-care-impact-report.jpeg"),
           caption: "Project CARE Team - Development team members who created the dialysis patient care solutions",
         },
       ],
@@ -255,23 +256,23 @@ function App() {
       ],
       photos: [
         {
-          url: "/AIPredict/AIBetProfit.png",
+          url: assetUrl("/AIPredict/AIBetProfit.png"),
           caption: "AI vs Human Analysts - Profit comparison showing AI's superior performance over NFL season",
         },
         {
-          url: "/AIPredict/AIBetScatterplot.png",
+          url: assetUrl("/AIPredict/AIBetScatterplot.png"),
           caption: "Prediction Accuracy Analysis - Scatterplot visualization of model performance metrics",
         },
         {
-          url: "/AIPredict/AIBetAIPrediction.png",
+          url: assetUrl("/AIPredict/AIBetAIPrediction.png"),
           caption: "AI Model Results - Gemini's 64.9% prediction accuracy across NFL games",
         },
         {
-          url: "/AIPredict/AIBetHumanPrediction.png",
+          url: assetUrl("/AIPredict/AIBetHumanPrediction.png"),
           caption: "Human Analyst Results - Professional analysts' 57.1% prediction accuracy comparison",
         },
         {
-          url: "/AIPredict/AIBetMoneyChart.png",
+          url: assetUrl("/AIPredict/AIBetMoneyChart.png"),
           caption: "Weekly ROI Performance - AI model generating $3,000+ more profit than human analysts",
         },
       ],
@@ -305,15 +306,15 @@ function App() {
       ],
       photos: [
         {
-          url: "/AIExercise/ExceriseCVOverlay.png",
+          url: assetUrl("/AIExercise/ExceriseCVOverlay.png"),
           caption: "Computer Vision Analysis - Real-time pose estimation overlay detecting exercise form",
         },
         {
-          url: "/AIExercise/ExerciseGoodForm.png",
+          url: assetUrl("/AIExercise/ExerciseGoodForm.png"),
           caption: "Correct Form Detection - AI model successfully identifying proper exercise posture (92% accuracy)",
         },
         {
-          url: "/AIExercise/ExerciseBadForm.png",
+          url: assetUrl("/AIExercise/ExerciseBadForm.png"),
           caption: "Form Correction Alert - System detecting and flagging improper exercise technique",
         },
       ],
@@ -394,9 +395,9 @@ function App() {
       impactNarrative:
         "My efforts helped TSA pivot successfully to hybrid events during the pandemic, maintaining engagement and growing our community despite restrictions.",
       photos: [
-        { url: "/TSA/F02BC1AA-2038-4F7E-85CD-5F186A39E447.jpeg", caption: "TSA State Competition - Participating in statewide STEM competition as Vice President" },
-        { url: "/TSA/IMG_2898.jpeg", caption: "TSA Executive Board - Co-leading 10-member executive board to organize STEM events" },
-        { url: "/TSA/IMG_5537.jpeg", caption: "TSA Achievement Recognition - Celebrating successful STEM competition organization" },
+        { url: assetUrl("/TSA/F02BC1AA-2038-4F7E-85CD-5F186A39E447.jpeg"), caption: "TSA State Competition - Participating in statewide STEM competition as Vice President" },
+        { url: assetUrl("/TSA/IMG_2898.jpeg"), caption: "TSA Executive Board - Co-leading 10-member executive board to organize STEM events" },
+        { url: assetUrl("/TSA/IMG_5537.jpeg"), caption: "TSA Achievement Recognition - Celebrating successful STEM competition organization" },
       ],
     },
     {
@@ -429,14 +430,14 @@ function App() {
       impactNarrative:
         "My STEM summer camp introduced 45 young students to robotics, with 80% expressing interest in pursuing STEM careers. The fundraising success enabled our team to compete at the highest levels, and our social media presence helped recruit the most diverse team in school history.",
       photos: [
-        { url: "/Robotics/IMG_1084.jpeg", caption: "STEM Summer Camp - Teaching elementary students robotics fundamentals" },
-        { url: "/Robotics/IMG_2397.jpeg", caption: "VEX World Championships - Team preparation and strategy session" },
-        { url: "/Robotics/IMG_5953.jpeg", caption: "Regional Competition Victory - Celebrating state championship win" },
-        { url: "/Robotics/IMG_5954.jpeg", caption: "Robot Design Workshop - Advanced programming and CAD training" },
-        { url: "/Robotics/IMG_5956.jpeg", caption: "Competition Robot - Award-winning design that reached World Championships" },
-        { url: "/Robotics/PNG%20image.jpeg", caption: "Team Building Session - Developing collaboration and technical skills" },
-        { url: "/Robotics/PNG%20image%20(1).jpeg", caption: "Fundraising Event - Community outreach and sponsor appreciation" },
-        { url: "/Robotics/IMG_5951.jpeg", caption: "Community STEM Outreach - Robotics club members engaging with local families at educational event" },
+        { url: assetUrl("/Robotics/IMG_1084.jpeg"), caption: "STEM Summer Camp - Teaching elementary students robotics fundamentals" },
+        { url: assetUrl("/Robotics/IMG_2397.jpeg"), caption: "VEX World Championships - Team preparation and strategy session" },
+        { url: assetUrl("/Robotics/IMG_5953.jpeg"), caption: "Regional Competition Victory - Celebrating state championship win" },
+        { url: assetUrl("/Robotics/IMG_5954.jpeg"), caption: "Robot Design Workshop - Advanced programming and CAD training" },
+        { url: assetUrl("/Robotics/IMG_5956.jpeg"), caption: "Competition Robot - Award-winning design that reached World Championships" },
+        { url: assetUrl("/Robotics/PNG%20image.jpeg"), caption: "Team Building Session - Developing collaboration and technical skills" },
+        { url: assetUrl("/Robotics/PNG%20image%20(1).jpeg"), caption: "Fundraising Event - Community outreach and sponsor appreciation" },
+        { url: assetUrl("/Robotics/IMG_5951.jpeg"), caption: "Community STEM Outreach - Robotics club members engaging with local families at educational event" },
       ],
     },
     {
@@ -467,8 +468,8 @@ function App() {
       impactNarrative:
         "Establishing this STEM program allowed me to impact 20+ middle school students and guide two teams to World Championships qualification. The experience taught me how to design effective curriculum, manage diverse learning styles, and inspire students to achieve at the highest competitive levels.",
       photos: [
-        { url: "/Robotics/IMG_1084.jpeg", caption: "Woodland Middle School Robotics - Leading STEM program for 20+ students with World Championships success" },
-        { url: "/TSA/IMG_5537.jpeg", caption: "Volunteer Recognition - Receiving 'Volunteer of the Year' PTA award for robotics mentorship" },
+        { url: assetUrl("/Robotics/IMG_1084.jpeg"), caption: "Woodland Middle School Robotics - Leading STEM program for 20+ students with World Championships success" },
+        { url: assetUrl("/TSA/IMG_5537.jpeg"), caption: "Volunteer Recognition - Receiving 'Volunteer of the Year' PTA award for robotics mentorship" },
       ],
     },
     {
@@ -504,8 +505,8 @@ function App() {
       impactNarrative:
         "As Head of MUN, my leadership of 15+ Secretariat Members and 800+ delegates created one of the most successful Model UN programs in Tennessee. The 2 keynote speeches I delivered inspired delegates from across the region, while the 2 Summits I led in Plenary sessions gained international recognition. My voter registration initiative became a model for other MUN conferences statewide, and receiving the MUN Nobel Peace Prize validated my commitment to diplomatic excellence and civic engagement. The 500+ pledges represented a 15% increase in youth voter registration in our county.",
       photos: [
-        { url: "/MUN/VihaangoingtoMUN.jpeg", caption: "Model UN Secretary General - Preparing for conference as Head of MUN organization" },
-        { url: "/MUN/VihaanMUN.jpeg", caption: "MUN Conference Leadership - Managing 800+ delegates across multiple Model UN events" },
+        { url: assetUrl("/MUN/VihaangoingtoMUN.jpeg"), caption: "Model UN Secretary General - Preparing for conference as Head of MUN organization" },
+        { url: assetUrl("/MUN/VihaanMUN.jpeg"), caption: "MUN Conference Leadership - Managing 800+ delegates across multiple Model UN events" },
       ],
     },
     {
@@ -539,9 +540,9 @@ function App() {
       impactNarrative:
         "Leading this nationwide initiative taught me how to coordinate complex logistics across all 50 states and manage diverse volunteer teams. I'm proud that our $105,000 fundraising success directly provided educational support to over 10,000 students, helping remove barriers to their academic success and demonstrating the power of organized community advocacy serving 15,000+ families annually.",
       photos: [
-        { url: "/NRIVA/IMG_5946.jpeg", caption: "NRIVA Community Outreach - Organizing nationwide backpack distribution for students in need" },
-        { url: "/NRIVA/IMG_5949.jpeg", caption: "Student Support Initiative - Leading $105,000 fundraising drive providing 10,000+ backpacks" },
-        { url: "/NRIVA/IMG_5950.jpeg", caption: "NRIVA Youth Committee Leadership - Coordinating 75+ state-level youth coordinators nationwide" },
+        { url: assetUrl("/NRIVA/IMG_5946.jpeg"), caption: "NRIVA Community Outreach - Organizing nationwide backpack distribution for students in need" },
+        { url: assetUrl("/NRIVA/IMG_5949.jpeg"), caption: "Student Support Initiative - Leading $105,000 fundraising drive providing 10,000+ backpacks" },
+        { url: assetUrl("/NRIVA/IMG_5950.jpeg"), caption: "NRIVA Youth Committee Leadership - Coordinating 75+ state-level youth coordinators nationwide" },
       ],
     },
   ];
@@ -575,12 +576,6 @@ function App() {
       ],
       impactNarrative:
         "My work with AWS Strands SDK, Claude AI, and LLMs has contributed to the development of intelligent automation solutions, helping improve the user experience of Karini AI's platform. The AWS Agents I converted support enterprise clients with automation workflows, helping reduce manual tasks and improve operational efficiency.",
-      photos: [
-        {
-          url: "/Karini/ai-development-workspace.jpg",
-          caption: "Karini AI Development Environment - Building intelligent automation solutions with AWS Strands SDK",
-        },
-      ],
     },
     {
       id: 2,
@@ -609,12 +604,6 @@ function App() {
       ],
       impactNarrative:
         "My contributions to the Poseidon project helped advance ocean plastic pollution monitoring capabilities. The data processing and visualization tools I developed support environmental research efforts and contribute to better understanding of plastic pollution patterns in ocean regions.",
-      photos: [
-        {
-          url: "/HSR/poseidon-ocean-dashboard.jpg",
-          caption: "Poseidon Ocean Tracking Dashboard - Real-time plastic pollution data across 30% of world's oceans",
-        },
-      ],
     },
     {
       id: 3,
@@ -642,12 +631,6 @@ function App() {
       ],
       impactNarrative:
         "Through engaging curriculum and hands-on instruction, I inspired the next generation of engineers and programmers. Many students continued their robotics journey after completing the program, demonstrating the lasting impact of quality STEM education.",
-      photos: [
-        {
-          url: "/RobotiX/robotics-instruction-session.jpg",
-          caption: "RobotiX Institute Classroom - Teaching robotics fundamentals to 50+ K-8 students",
-        },
-      ],
     },
   ];
 
