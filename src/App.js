@@ -14,7 +14,7 @@ function App() {
   const [isSending, setIsSending] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
 
-  const assetUrl = (relativePath) => `${process.env.PUBLIC_URL}${relativePath}`;
+  const assetUrl = (relativePath) => `${process.env.PUBLIC_URL || ""}${relativePath}`;
 
   const [zoomedImage, setZoomedImage] = useState(null);
 
