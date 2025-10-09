@@ -243,6 +243,7 @@ function App() {
     {
       id: 1,
       title: "AI in Predicting NFL Sports Bets",
+      slug: "research-ai-in-predicting-nfl-sports-bets",
       description: "Analyzing historical NFL data to predict outcomes and betting spreads.",
       overview:
         "This machine learning research applies predictive analytics to sports betting markets, investigating the effectiveness of AI models compared to professional analysts. Conducted as part of my high school's advanced research program, this study demonstrates the superior performance of AI in sports prediction.",
@@ -289,6 +290,7 @@ function App() {
     {
       id: 2,
       title: "AI in Tracking Exercise Form",
+      slug: "research-ai-in-tracking-exercise-form",
       description: "Using computer vision to analyze and correct workout posture in real-time.",
       overview:
         "This research explores how deep learning models (TensorFlow + OpenCV) can process live video to detect and correct exercise form, reducing injury risk and improving performance.",
@@ -634,6 +636,33 @@ function App() {
     },
   ];
 
+  useEffect(() => {
+    const handleHashNavigation = () => {
+      const hash = window.location.hash.replace(/^#/, "");
+      if (!hash) return;
+
+      const researchTopic = researchTopics.find((topic) => topic.slug === hash);
+      if (researchTopic) {
+        setActiveSection("research");
+        setSelectedResearch(researchTopic);
+        setCarouselIndex(0);
+        setTimeout(() => {
+          const target = document.getElementById(hash);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "center" });
+            if (typeof target.focus === "function") {
+              target.focus({ preventScroll: true });
+            }
+          }
+        }, 0);
+      }
+    };
+
+    handleHashNavigation();
+    window.addEventListener("hashchange", handleHashNavigation);
+    return () => window.removeEventListener("hashchange", handleHashNavigation);
+  }, []);
+
   const closeModal = () => {
     setSelectedProject(null);
     setSelectedResearch(null);
@@ -945,10 +974,16 @@ function App() {
           </div>
           <div className="research-grid">
             {researchTopics.map((topic) => (
-              <div key={topic.id} className="card" onClick={() => {
-                setCarouselIndex(0);
-                setSelectedResearch(topic);
-              }}>
+              <div
+                key={topic.id}
+                id={topic.slug}
+                className="card"
+                tabIndex={-1}
+                onClick={() => {
+                  setCarouselIndex(0);
+                  setSelectedResearch(topic);
+                }}
+              >
                 <div className="card-header">
                   <div className="card-icon">
                     {topic.id === 1 ? "🏈" : "🏃"}
