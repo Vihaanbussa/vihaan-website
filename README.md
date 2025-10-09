@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Vihaan Bussa Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An accessible single-page React site that showcases Vihaan Bussa's projects, research, leadership, and academic achievements. The experience highlights high-impact initiatives through interactive galleries, detailed modal views, and a polished contact flow powered by EmailJS.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Sticky navigation with active section highlighting and keyboard-friendly skip links
+- Story-driven content for projects, research, internships, and leadership with modal detail views and image carousels
+- Contact form integrated with EmailJS for direct messages, including loading and success/error states
+- Accessible design system: WCAG AA color contrast, focus management, aria labels, and screen-reader helpers
+- Responsive layout that adapts from mobile to large-screen displays, leveraging CSS Grid and Flexbox
+- Centralized data structures that make it easy to update achievements, stats, and gallery assets
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 19 with functional components and hooks (`useState`, `useEffect`, `useMemo`)
+- CSS modules for theming, accessibility, and responsive layout (`src/App.css`)
+- EmailJS browser SDK for zero-backend contact form submissions
+- Create React App tooling for local development, testing, and production builds
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+Prerequisites:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js 18+ and npm 9+
 
-### `npm run build`
+Install dependencies and start the development server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The app runs at `http://localhost:3000` by default and supports hot reload.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Available Scripts
 
-### `npm run eject`
+- `npm start` – Run the app in development mode.
+- `npm test` – Launch the interactive test runner (Jest + Testing Library).
+- `npm run build` – Create an optimized production bundle in `build/`.
+- `npm run eject` – Opt out of CRA's build tooling to customize the configuration (irreversible).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+vihaan-website/
+├── public/                 # Static assets and images used in modals and galleries
+└── src/
+    ├── App.js              # Page sections, content definitions, modal logic, carousel controls
+    ├── App.css             # Theme tokens, responsive layout rules, accessibility helpers
+    ├── index.js            # React entry point
+    └── reportWebVitals.js  # Optional web vitals reporting hook
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Customizing Content
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Projects, Research, Leadership, Internships**: Update the arrays defined near the top of `src/App.js` to edit titles, descriptions, links, budgets, and gallery images.
+- **Achievements and Skills**: Edit the respective arrays in `App.js` to reflect new honors or technologies.
+- **Images**: Place new assets in `public/` and reference them using the `assetUrl("/path/to/image.png")` helper to ensure the correct base path in development and production.
+- **Styling**: Adjust color tokens, typography, and layout rules in `src/App.css`. The design system is centralized in the `:root` declaration for quick theme updates.
 
-## Learn More
+## EmailJS Configuration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The contact form uses EmailJS with service, template, and public key values defined in `handleFormSubmit` (`src/App.js`). To use your own EmailJS account:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Create a service, template, and public key in the EmailJS dashboard.
+2. Replace the hard-coded IDs in `emailjs.send(...)` with your values or refactor them into environment variables.
+3. Update the EmailJS template to expect `from_name`, `from_email`, and `message`.
 
-### Code Splitting
+## Accessibility & Performance
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- WCAG AA-compliant color contrast and focus states for interactive elements
+- Skip links, aria live regions, and descriptive labels for screen readers
+- Smooth scrolling with active section tracking to aid orientation
+- Optimized image handling and lightweight dependencies for fast load times
 
-### Analyzing the Bundle Size
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The project is configured for GitHub Pages via the `homepage` field in `package.json`. A typical deployment workflow:
 
-### Making a Progressive Web App
+1. Build the project with `npm run build`.
+2. Serve locally for verification: `npx serve build`.
+3. Publish the `build/` directory to GitHub Pages or your preferred static hosting service.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+If you prefer automated GitHub Pages deployments, add scripts that invoke the `gh-pages` CLI (already listed in `devDependencies`).
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Maintained by Vihaan Bussa. Feel free to adapt the content and theming to support new achievements, press, or outreach initiatives.
