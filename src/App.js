@@ -661,7 +661,7 @@ function App() {
     handleHashNavigation();
     window.addEventListener("hashchange", handleHashNavigation);
     return () => window.removeEventListener("hashchange", handleHashNavigation);
-  }, []);
+  }, [researchTopics]);
 
   const closeModal = () => {
     setSelectedProject(null);
