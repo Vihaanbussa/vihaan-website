@@ -1,5 +1,5 @@
 // App.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import emailjs from '@emailjs/browser';
 import "./App.css";
 
@@ -239,7 +239,7 @@ function App() {
     },
   ];
 
-  const researchTopics = [
+  const researchTopics = useMemo(() => [
     {
       id: 1,
       title: "AI in Predicting NFL Sports Bets",
@@ -325,7 +325,7 @@ function App() {
       ],
       future: ["Deploy on mobile devices", "Add multi-person tracking"],
     },
-  ];
+  ], []);
 
   const achievements = [
     {
