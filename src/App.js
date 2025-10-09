@@ -374,10 +374,11 @@ function App() {
     },
   ];
 
-  const leadership = [
+  const leadership = useMemo(() => [
     {
       id: 1,
       title: "Technology Student Association Vice President",
+      slug: "leadership-technology-student-association-vice-president",
       organization: "Technology Student Association",
       year: "2022–2025",
       duration: "Aug 2022 – Present",
@@ -409,6 +410,7 @@ function App() {
     {
       id: 2,
       title: "Robotics Club Co-President",
+      slug: "leadership-robotics-club-co-president",
       organization: "Ravenwood High School Robotics Club",
       year: "2023–2025",
       duration: "Sep 2023 – Present",
@@ -449,6 +451,7 @@ function App() {
     {
       id: 3,
       title: "Woodland Middle School Robotics Club Leader",
+      slug: "leadership-woodland-middle-school-robotics-club-leader",
       organization: "Woodland Middle School",
       year: "Aug 2022–Present",
       duration: "Aug 2022 – Present",
@@ -481,6 +484,7 @@ function App() {
     {
       id: 4,
       title: "Model UN Secretary General",
+      slug: "leadership-model-un-secretary-general",
       organization: "Ravenwood High School Model UN",
       year: "2022–2023",
       duration: "Jul 2022 – Jun 2023",
@@ -518,6 +522,7 @@ function App() {
     {
       id: 5,
       title: "NRIVA Youth Committee National Lead",
+      slug: "leadership-nriva-youth-committee-national-lead",
       organization: "North Region Indian Volunteers Association",
       year: "2023–Present",
       duration: "Jun 2023 – Present",
@@ -551,7 +556,7 @@ function App() {
         { url: assetUrl("/NRIVA/IMG_5950.jpeg"), caption: "NRIVA Youth Committee Leadership - Coordinating 75+ state-level youth coordinators nationwide" },
       ],
     },
-  ];
+  ], []);
 
   // New Internships section
   const internships = [
@@ -682,13 +687,33 @@ function App() {
             }
           }
         }, 0);
+        return;
+      }
+
+      const leadershipRole = leadership.find((role) => role.slug === hash);
+      if (leadershipRole) {
+        setActiveSection("leadership");
+        setSelectedLeadership(leadershipRole);
+        setSelectedProject(null);
+        setSelectedResearch(null);
+        setSelectedInternship(null);
+        setCarouselIndex(0);
+        setTimeout(() => {
+          const target = document.getElementById(hash);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "center" });
+            if (typeof target.focus === "function") {
+              target.focus({ preventScroll: true });
+            }
+          }
+        }, 0);
       }
     };
 
     handleHashNavigation();
     window.addEventListener("hashchange", handleHashNavigation);
     return () => window.removeEventListener("hashchange", handleHashNavigation);
-  }, [projects, researchTopics]);
+  }, [projects, researchTopics, leadership]);
 
   const closeModal = () => {
     setSelectedProject(null);
@@ -1075,8 +1100,16 @@ function App() {
             {leadership.map((role) => (
               <div
                 key={role.id}
+                id={role.slug}
                 className="card"
-                onClick={() => setSelectedLeadership(role)}
+                tabIndex={-1}
+                onClick={() => {
+                  setCarouselIndex(0);
+                  setSelectedProject(null);
+                  setSelectedResearch(null);
+                  setSelectedInternship(null);
+                  setSelectedLeadership(role);
+                }}
               >
                 <div className="card-header">
                   <div className="card-icon">
