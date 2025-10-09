@@ -37,10 +37,11 @@ function App() {
     }
   }, [selectedProject, selectedResearch, selectedLeadership, selectedInternship]);
 
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
       title: "Portfolio Website",
+      slug: "project-portfolio-website",
       description: "A sleek, responsive portfolio site built with React and CSS.",
       overview:
         "You're currently viewing this comprehensive portfolio website! Built with React and modern web technologies, it showcases my journey as a student innovator, entrepreneur, and technology leader. The site features interactive project galleries, detailed research publications, leadership experiences, and technical achievements. Serving as both a digital resume and case study collection, this platform demonstrates my ability to create impactful solutions across healthcare, education, and technology sectors. With WCAG AA accessibility compliance and responsive design, it effectively communicates my passion for using technology to solve real-world problems.",
@@ -88,6 +89,7 @@ function App() {
     {
       id: 2,
       title: "InvestEDU",
+      slug: "project-investedu",
       description: "Financial education platform for young adults with interactive modules.",
       overview:
         "InvestEDU is a comprehensive financial literacy application designed to teach teenagers about the importance of investing early. With 500+ beta users and 2.8K monthly views, this platform has increased user engagement by 40% and improved users' financial comprehension scores by 25%. Having been personally involved with the stock market through paper trading, I witnessed firsthand how quickly money can compound. To share this valuable knowledge with others, I created InvestEDU.",
@@ -119,6 +121,7 @@ function App() {
     {
       id: 3,
       title: "Project CARE",
+      slug: "project-care",
       description: "Improving quality of life for dialysis patients through innovative technology solutions.",
       overview:
         "Project CARE is an initiative committed to improving the quality of life for dialysis patients and enhancing clinical operations at Dialysis Clinic, Inc. (DCI). The project features a mobile app for personalized meal planning and appointment management, along with community awareness campaigns.",
@@ -202,6 +205,7 @@ function App() {
     {
       id: 4,
       title: "ElderHelper",
+      slug: "project-elderhelper",
       description: "IoT fall detection box and pill dispenser built for the IEEE SSCS Arduino Competition.",
       overview:
         "ElderHelper is an innovative IoT device designed to assist elderly individuals with medication management and safety monitoring. Inspired by YouTuber Mark Rober's electronics projects, this device combines fall detection technology with automated pill dispensing in a compact, user-friendly package. Built for the IEEE SSCS Arduino Competition, it represents my first deep dive into electronics and embedded systems.",
@@ -237,7 +241,7 @@ function App() {
         "Add voice command functionality",
       ],
     },
-  ];
+  ], []);
 
   const researchTopics = useMemo(() => [
     {
@@ -641,10 +645,33 @@ function App() {
       const hash = window.location.hash.replace(/^#/, "");
       if (!hash) return;
 
+      const projectMatch = projects.find((project) => project.slug === hash);
+      if (projectMatch) {
+        setActiveSection("projects");
+        setSelectedProject(projectMatch);
+        setSelectedResearch(null);
+        setSelectedLeadership(null);
+        setSelectedInternship(null);
+        setCarouselIndex(0);
+        setTimeout(() => {
+          const target = document.getElementById(hash);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "center" });
+            if (typeof target.focus === "function") {
+              target.focus({ preventScroll: true });
+            }
+          }
+        }, 0);
+        return;
+      }
+
       const researchTopic = researchTopics.find((topic) => topic.slug === hash);
       if (researchTopic) {
         setActiveSection("research");
         setSelectedResearch(researchTopic);
+        setSelectedProject(null);
+        setSelectedLeadership(null);
+        setSelectedInternship(null);
         setCarouselIndex(0);
         setTimeout(() => {
           const target = document.getElementById(hash);
@@ -661,7 +688,7 @@ function App() {
     handleHashNavigation();
     window.addEventListener("hashchange", handleHashNavigation);
     return () => window.removeEventListener("hashchange", handleHashNavigation);
-  }, [researchTopics]);
+  }, [projects, researchTopics]);
 
   const closeModal = () => {
     setSelectedProject(null);
@@ -943,9 +970,14 @@ function App() {
             {projects.map((project) => (
               <div
                 key={project.id}
+                id={project.slug}
                 className="card"
+                tabIndex={-1}
                 onClick={() => {
                   setCarouselIndex(0);
+                  setSelectedResearch(null);
+                  setSelectedLeadership(null);
+                  setSelectedInternship(null);
                   setSelectedProject(project);
                 }}
               >
