@@ -97,17 +97,47 @@ function App() {
       tags: ["React", "JS", "CSS", "Financial Education"],
       details: "### Techniques Implemented:\n- Desmos API Integration for Interactive Graph\n- SVG Graph for main simulator output\n- Vercel Deployment\n- Use of A=Pe^(rt) for compounded money calculations\n\n### Key Features:\n- Interactive budgeting simulator with real-time feedback\n- Investment scenario builder with market data\n- Progress tracking with achievement badges\n- Community challenge boards\n\n### Impact & Statistics:\n- 500+ beta users with growing engagement\n- 2.8K monthly views demonstrating strong user interest\n- 40% increase in user engagement through platform improvements\n- 25% improvement in users' financial comprehension scores\n- Interactive financial simulator with personalized quiz system\n- Dynamic budgeting and investing education tools\n- Proven educational effectiveness in financial literacy",
       photos: [
-        { url: assetUrl("/InvestEDU/investedhome.png"), caption: "InvestEDU Home Page - Clean, intuitive interface with modern financial design" },
-        { url: assetUrl("/InvestEDU/investedhomedesmos.png"), caption: "Desmos API Integration - Interactive compound interest visualization and graphing tools" },
-        { url: assetUrl("/InvestEDU/investedinfo.png"), caption: "Investment Education Hub - Comprehensive learning modules for financial literacy" },
-        { url: assetUrl("/InvestEDU/investedglossary.png"), caption: "Financial Glossary - 200+ investment terms explained in simple language" },
-        { url: assetUrl("/InvestEDU/investedpersonalityquiz.png"), caption: "Investor Personality Quiz - Personalized investment strategies based on risk tolerance" },
-        { url: assetUrl("/InvestEDU/investedbudgetplanner.png"), caption: "Budget Planner Tool - Track expenses, income, and savings goals effectively" },
-        { url: assetUrl("/InvestEDU/investedAI.png"), caption: "InvestEDU AI Assistant - 24/7 financial guidance and investment recommendations" },
-        { url: assetUrl("/InvestEDU/investedcomparison.png"), caption: "Investment Comparison Tool - Side-by-side analysis of different investment options" },
-        { url: assetUrl("/InvestEDU/investedcalculator.png"), caption: "Investment Calculator - Real-time compound interest calculations with A=Pe^(rt) formula" },
-        { url: assetUrl("/InvestEDU/investedu-analytics-dashboard.jpeg"), caption: "InvestEDU Analytics Dashboard - Real user engagement metrics showing 2,500+ active users" },
-      ],
+  { 
+    url: assetUrl("/InvestEDU/investedhome.png"), 
+    caption: "InvestEDU Home — Intuitive interface introducing financial literacy through interactive investment simulations." 
+  },
+  { 
+    url: assetUrl("/InvestEDU/investedhomedesmos.png"), 
+    caption: "Desmos Integration — Dynamic compound interest visualizations powered by the Desmos API." 
+  },
+  { 
+    url: assetUrl("/InvestEDU/investedinfo.png"), 
+    caption: "Investment Learning Hub — Simple, structured explanations that make investing concepts easy to grasp." 
+  },
+  { 
+    url: assetUrl("/InvestEDU/investedglossary.png"), 
+    caption: "Financial Glossary — 200+ investment terms defined in clear, beginner-friendly language." 
+  },
+  { 
+    url: assetUrl("/InvestEDU/investedpersonalityquiz.png"), 
+    caption: "Investor Personality Quiz — Discover your risk profile and get personalized investment insights." 
+  },
+  { 
+    url: assetUrl("/InvestEDU/investedbudgetplanner.png"), 
+    caption: "Budget & Savings Planner — Interactive calculator to plan budgets, set savings goals, and track progress." 
+  },
+  { 
+    url: assetUrl("/InvestEDU/investedAI.png"), 
+    caption: "AI Finance Assistant — Conversational guide that explains financial concepts and answers investment questions." 
+  },
+  { 
+    url: assetUrl("/InvestEDU/investedcomparison.png"), 
+    caption: "Scenario Comparison Simulator — Analyze and compare multiple investment growth strategies side by side." 
+  },
+  { 
+    url: assetUrl("/InvestEDU/investedcalculator.png"), 
+    caption: "Calculator Challenge — Interactive quiz that reinforces compound interest concepts through real-world problems." 
+  },
+  { 
+    url: assetUrl("/InvestEDU/investedu-analytics-dashboard.jpeg"), 
+    caption: "Analytics Dashboard — Tracking 2.8K+ active users with engagement metrics and learning insights." 
+  },
+],
       links: [
         { label: "Visit InvestEDU Platform", url: "https://investedu.me" },
         { label: "View Source Code", url: "https://github.com/Vihaanbussa" },
