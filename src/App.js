@@ -159,39 +159,39 @@ function App() {
       tags: ["React Native", "Firebase", "Healthcare", "UI/UX", "Social Impact"],
       details: "### About DCI & Dialysis:\n- Dialysis Clinic, Inc. (DCI) is a leading non-profit provider founded in 1971\n- Operates 250+ clinics nationwide serving 15,000+ patients\n- Dialysis is a life-saving treatment for kidney failure, requiring 4-hour sessions, 3 days per week\n- 32.3% of patients experience significant decline in quality of life after starting treatment\n\n### Our Solution:\n\n**1. Personalized Meal Planning App**\n- AI-powered meal generator tailored to dialysis dietary restrictions\n- 109+ downloads on the App Store\n- Key Features:\n  • Customizable meal plans based on health conditions\n  • Allergy and preference filters\n  • Nutritional information tracking\n\n**2. Appointment Management**\n- Calendar interface for session scheduling\n- Automated notifications and reminders\n- Reduces no-show rates by 30%\n\n**3. Community Awareness**\n- Instagram campaign with 150+ followers\n- Educational content during National Kidney Month\n- Blog platform for patient stories and advice\n\n### Technical Implementation:\n- React Native for cross-platform mobile development\n- Firebase for backend services and authentication\n- HIPAA-compliant data storage\n- Real-time updates and notifications\n\n### DCI Implementation & Results:\n- Successfully implemented across DCI clinics in Tennessee and Georgia\n- 93% reduction in patient session cancellation time (from 3.5 min to 15 sec)\n- Reduced clinic no-show rates from 13% to 2%\n- Improved care for 200+ patients directly\n- Published application to Apple App Store\n- Generated over 4,000 impressions post-launch\n- Integrated AI-driven diet plans and smart scheduling\n- Translated clinical needs into secure and scalable digital tool\n- Led end-to-end development for nation's largest nonprofit dialysis provider",
       photos: [
-        {
-          url: assetUrl("/DECADCI/dci-meeting-screenshot.jpeg"),
-          caption: "DCI Executive Meeting - Presenting Project CARE implementation strategy to leadership team",
-        },
-        {
-          url: assetUrl("/DECADCI/IMG_2568.jpeg"),
-          caption: "Project CARE Team at DCI Headquarters - Collaborating with healthcare professionals in Nashville, TN",
-        },
-        {
-          url: assetUrl("/DECADCI/3d9812af-e50e-4f84-af6c-8347ee38bb57.jpeg"),
-          caption: "DCI Clinic Implementation - Training dialysis clinic staff on Project CARE mobile app and systems",
-        },
-        {
-          url: assetUrl("/DECADCI/6ae1d092-879f-44f9-bd68-488f85010c5e.jpeg"),
-          caption: "Patient Feedback Session - Gathering user experience data from dialysis patients using Project CARE",
-        },
-        {
-          url: assetUrl("/DECADCI/dbd797e3-2049-4a8a-a7e7-c8c294b75cca.jpeg"),
-          caption: "Project CARE Analytics Dashboard - Real-time patient engagement metrics showing 89% satisfaction rate",
-        },
-        {
-          url: assetUrl("/DECADCI/project-care-documentation.jpeg"),
-          caption: "DCI Partnership Documentation - Official collaboration agreement for Project CARE implementation",
-        },
-        {
-          url: assetUrl("/DECADCI/project-care-mobile-app.jpeg"),
-          caption: "Project CARE Mobile App Interface - Meal planning feature designed for dialysis patients",
-        },
-        {
-          url: assetUrl("/DECADCI/project-care-impact-report.jpeg"),
-          caption: "Project CARE Team - Development team members who created the dialysis patient care solutions",
-        },
-      ],
+  {
+    url: assetUrl("/DECADCI/dci-meeting-screenshot.jpeg"),
+    caption: "DCI Executive Meeting — Presenting Project CARE’s implementation roadmap to the leadership team via virtual conference.",
+  },
+  {
+    url: assetUrl("/DECADCI/IMG_2568.jpeg"),
+    caption: "On-Site Collaboration — Project CARE team visiting DCI Headquarters to align on system integration and pilot rollout.",
+  },
+  {
+    url: assetUrl("/DECADCI/3d9812af-e50e-4f84-af6c-8347ee38bb57.jpeg"),
+    caption: "Clinic Training Session — Educating dialysis staff on Project CARE’s scheduling and patient tracking features.",
+  },
+  {
+    url: assetUrl("/DECADCI/6ae1d092-879f-44f9-bd68-488f85010c5e.jpeg"),
+    caption: "User Testing & Feedback — Conducting in-clinic interviews to refine Project CARE based on patient and staff input.",
+  },
+  {
+    url: assetUrl("/DECADCI/dbd797e3-2049-4a8a-a7e7-c8c294b75cca.jpeg"),
+    caption: "Analytics Dashboard — Monitoring live engagement and satisfaction metrics, achieving an 89% positive response rate.",
+  },
+  {
+    url: assetUrl("/DECADCI/project-care-documentation.jpeg"),
+    caption: "Official Partnership — DCI collaboration agreement formalizing Project CARE’s adoption across pilot clinics.",
+  },
+  {
+    url: assetUrl("/DECADCI/project-care-mobile-app.jpeg"),
+    caption: "Mobile App Interface — Meal planning and nutrition tracking features tailored for dialysis patient dietary needs.",
+  },
+  {
+    url: assetUrl("/DECADCI/project-care-impact-report.jpeg"),
+    caption: "Project CARE Team — DECA and DCI collaboration team driving innovation in dialysis patient care management.",
+  },
+],
       links: [
         { label: "Research Paper", url: "https://docs.google.com/document/d/10PaCSnHW3U8UJUJL-OMOAVcjja93PkaFx8LjRLpvktM/" },
         { label: "Project Documentation", url: "https://docs.google.com/document/d/10PaCSnHW3U8UJUJL-OMOAVcjja93PkaFx8LjRLpvktM/" },
