@@ -64,15 +64,16 @@ function App() {
       photos: [
         {
           url: assetUrl("/about_me_pic.png"),
-          caption: "Portfolio Website Hero Section - Clean, professional design with accessibility features",
+          caption: "Portfolio Hero Section — A clean, accessible showcase of my professional journey",
         },
         {
           url: assetUrl("/InvestEDU/investedhome.png"),
-          caption: "Portfolio Website Project Gallery - Showcasing featured projects and research",
+          caption: "Portfolio Project Gallery — Featuring InvestEDU and my latest work in AI and financial literacy.",
+        
         },
         {
           url: assetUrl("/InvestEDU/investedinfo.png"),
-          caption: "Portfolio Website Modal System - Detailed project information with interactive galleries",
+          caption: "Project Detail Modal — Explore InvestEDU’s features through an interactive and accessible interface.",
         },
       ],
       links: [
