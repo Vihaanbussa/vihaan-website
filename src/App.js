@@ -165,7 +165,7 @@ function App() {
   },
   {
     url: assetUrl("/DECADCI/IMG_2568.jpeg"),
-    caption: "On-Site Collaboration — Project CARE team visiting DCI Headquarters to align on system integration and pilot rollout.",
+    caption: "Project CARE team - Business card.",
   },
   {
     url: assetUrl("/DECADCI/3d9812af-e50e-4f84-af6c-8347ee38bb57.jpeg"),
@@ -177,19 +177,19 @@ function App() {
   },
   {
     url: assetUrl("/DECADCI/dbd797e3-2049-4a8a-a7e7-c8c294b75cca.jpeg"),
-    caption: "Analytics Dashboard — Monitoring live engagement and satisfaction metrics, achieving an 89% positive response rate.",
+    caption: "On-Site Collaboration — Project CARE team visiting DCI Headquarters to align on system integration and pilot rollout.",
   },
   {
     url: assetUrl("/DECADCI/project-care-documentation.jpeg"),
-    caption: "Official Partnership — DCI collaboration agreement formalizing Project CARE’s adoption across pilot clinics.",
-  },
-  {
-    url: assetUrl("/DECADCI/project-care-mobile-app.jpeg"),
     caption: "Mobile App Interface — Meal planning and nutrition tracking features tailored for dialysis patient dietary needs.",
   },
   {
+    url: assetUrl("/DECADCI/project-care-mobile-app.jpeg"),
+    caption: "Mobile App Interface — Project CARE Logo.",
+  },
+  {
     url: assetUrl("/DECADCI/project-care-impact-report.jpeg"),
-    caption: "Project CARE Team — DECA and DCI collaboration team driving innovation in dialysis patient care management.",
+    caption: "Project CARE Team — DECA team driving innovation in dialysis patient care management.",
   },
 ],
       links: [
