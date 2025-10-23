@@ -469,15 +469,31 @@ function App() {
       impactNarrative:
         "My STEM summer camp introduced 45 young students to robotics, with 80% expressing interest in pursuing STEM careers. The fundraising success enabled our team to compete at the highest levels, and our social media presence helped recruit the most diverse team in school history.",
       photos: [
-        { url: assetUrl("/Robotics/IMG_1084.jpeg"), caption: "STEM Summer Camp - Teaching elementary students robotics fundamentals" },
-        { url: assetUrl("/Robotics/IMG_2397.jpeg"), caption: "VEX World Championships - Team preparation and strategy session" },
-        { url: assetUrl("/Robotics/IMG_5953.jpeg"), caption: "Regional Competition Victory - Celebrating state championship win" },
-        { url: assetUrl("/Robotics/IMG_5954.jpeg"), caption: "Robot Design Workshop - Advanced programming and CAD training" },
-        { url: assetUrl("/Robotics/IMG_5956.jpeg"), caption: "Competition Robot - Award-winning design that reached World Championships" },
-        { url: assetUrl("/Robotics/PNG%20image.jpeg"), caption: "Team Building Session - Developing collaboration and technical skills" },
-        { url: assetUrl("/Robotics/PNG%20image%20(1).jpeg"), caption: "Fundraising Event - Community outreach and sponsor appreciation" },
-        { url: assetUrl("/Robotics/IMG_5951.jpeg"), caption: "Community STEM Outreach - Robotics club members engaging with local families at educational event" },
-      ],
+  {
+    url: assetUrl("/Robotics/IMG_5956.jpeg"),
+    caption: "Award-Winning Robots — Excellence, Design, and Skills Champion titles earned through engineering precision and strategy.",
+  },
+  {
+    url: assetUrl("/Robotics/IMG_5953.jpeg"),
+    caption: "Tournament Champions — Securing multiple awards and advancing to state championships after a record-breaking season.",
+  },
+  {
+    url: assetUrl("/Robotics/IMG_5954.jpeg"),
+    caption: "Engineering Workshop — Refining robot architecture with CAD modeling, autonomous pathing, and mechanical optimization.",
+  },
+  {
+    url: assetUrl("/Robotics/IMG_2397.jpeg"),
+    caption: "VEX World Championships — Representing Tennessee at the global stage with a competition-tested robot design.",
+  },
+  {
+    url: assetUrl("/Robotics/IMG_1084.jpeg"),
+    caption: "STEM Summer Camp — Teaching elementary students coding and robotics fundamentals through interactive challenges.",
+  },
+  {
+    url: assetUrl("/Robotics/IMG_5951.jpeg"),
+    caption: "Community STEM Outreach — Mentoring young learners and demonstrating robotics innovations at local events.",
+  },
+],
     },
     {
       id: 3,
@@ -508,8 +524,9 @@ function App() {
       impactNarrative:
         "Establishing this STEM program allowed me to impact 20+ middle school students and guide two teams to World Championships qualification. The experience taught me how to design effective curriculum, manage diverse learning styles, and inspire students to achieve at the highest competitive levels.",
       photos: [
-        { url: assetUrl("/Robotics/IMG_1084.jpeg"), caption: "Woodland Middle School Robotics - Leading STEM program for 20+ students with World Championships success" },
-        { url: assetUrl("/TSA/IMG_5537.jpeg"), caption: "Volunteer Recognition - Receiving 'Volunteer of the Year' PTA award for robotics mentorship" },
+        { url: assetUrl("/Robotics/PNG%20image%20(1).jpeg"), caption: "Woodland Middle School Robotics - Leading STEM program for 20+ students with World Championships success" },
+        
+        
       ],
     },
     {
