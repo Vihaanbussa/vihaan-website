@@ -291,27 +291,27 @@ function App() {
         },
       ],
       photos: [
-        {
-          url: assetUrl("/AIPredict/AIBetProfit.png"),
-          caption: "AI vs Human Analysts - Profit comparison showing AI's superior performance over NFL season",
-        },
-        {
-          url: assetUrl("/AIPredict/AIBetScatterplot.png"),
-          caption: "Prediction Accuracy Analysis - Scatterplot visualization of model performance metrics",
-        },
-        {
-          url: assetUrl("/AIPredict/AIBetAIPrediction.png"),
-          caption: "AI Model Results - Gemini's 64.9% prediction accuracy across NFL games",
-        },
-        {
-          url: assetUrl("/AIPredict/AIBetHumanPrediction.png"),
-          caption: "Human Analyst Results - Professional analysts' 57.1% prediction accuracy comparison",
-        },
-        {
-          url: assetUrl("/AIPredict/AIBetMoneyChart.png"),
-          caption: "Weekly ROI Performance - AI model generating $3,000+ more profit than human analysts",
-        },
-      ],
+  {
+    url: assetUrl("/AIPredict/AIBetProfit.png"),
+    caption: "AI vs. Human Analysts — Cumulative profit growth highlighting AI’s consistent outperformance over the NFL season.",
+  },
+  {
+    url: assetUrl("/AIPredict/AIBetScatterplot.png"),
+    caption: "Profit Trend Analysis — Scatterplot comparing weekly returns with trendlines showing AI’s steeper growth trajectory.",
+  },
+  {
+    url: assetUrl("/AIPredict/AIBetAIPrediction.png"),
+    caption: "AI Prediction Breakdown — Gemini model achieving 64.9% accuracy across NFL outcomes.",
+  },
+  {
+    url: assetUrl("/AIPredict/AIBetHumanPrediction.png"),
+    caption: "Human Prediction Breakdown — Professional analysts reaching 57.1% accuracy for the same game set.",
+  },
+  {
+    url: assetUrl("/AIPredict/AIBetMoneyChart.png"),
+    caption: "Weekly Performance Table — Week-by-week profit comparison showing AI surpassing human analysts by $3,000+.",
+  },
+],
       links: [
         { label: "Read Full Paper", url: "https://docs.google.com/document/d/10PaCSnHW3U8UJUJL-OMOAVcjja93PkaFx8LjRLpvktM/edit?usp=sharing" },
         { label: "View Research Repository", url: "https://docs.google.com/spreadsheets/d/1yaFK0Ky3bNbYYGtkbVJwOuyTmxt28dkW2qg8uVn3AYI/edit?usp=sharing" },
