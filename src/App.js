@@ -433,9 +433,18 @@ function App() {
       impactNarrative:
         "My efforts helped TSA pivot successfully to hybrid events during the pandemic, maintaining engagement and growing our community despite restrictions.",
       photos: [
-        { url: assetUrl("/TSA/F02BC1AA-2038-4F7E-85CD-5F186A39E447.jpeg"), caption: "TSA State Competition - Participating in statewide STEM competition as Vice President" },
-        { url: assetUrl("/TSA/IMG_2898.jpeg"), caption: "TSA Executive Board - Co-leading 10-member executive board to organize STEM events" },
-        { url: assetUrl("/TSA/IMG_5537.jpeg"), caption: "TSA Achievement Recognition - Celebrating successful STEM competition organization" },
+        {
+          url: assetUrl("/TSA/F02BC1AA-2038-4F7E-85CD-5F186A39E447.jpeg"),
+          caption: "Campaign Launch – Promoting 'Go Beyond with Bussa' as a TSA State Officer Candidate 🚀",
+        },
+        {
+          url: assetUrl("/TSA/IMG_2898.jpeg"),
+          caption: "TSA State Leadership Conference – Collaborating with peers as a State Vice President to advance STEM education",
+        },
+        {
+          url: assetUrl("/TSA/IMG_5537.jpeg"),
+          caption: "Keynote Address – Delivering a speech to students at the TSA State Conference",
+        },
       ],
     },
     {
@@ -487,7 +496,7 @@ function App() {
   },
   {
     url: assetUrl("/Robotics/IMG_1084.jpeg"),
-    caption: "STEM Summer Camp — Teaching elementary students coding and robotics fundamentals through interactive challenges.",
+    caption: "VEX Regional Tournament- Design award.",
   },
   {
     url: assetUrl("/Robotics/IMG_5951.jpeg"),
@@ -563,8 +572,14 @@ function App() {
       impactNarrative:
         "As Head of MUN, my leadership of 15+ Secretariat Members and 800+ delegates created one of the most successful Model UN programs in Tennessee. The 2 keynote speeches I delivered inspired delegates from across the region, while the 2 Summits I led in Plenary sessions gained international recognition. My voter registration initiative became a model for other MUN conferences statewide, and receiving the MUN Nobel Peace Prize validated my commitment to diplomatic excellence and civic engagement. The 500+ pledges represented a 15% increase in youth voter registration in our county.",
       photos: [
-        { url: assetUrl("/MUN/VihaangoingtoMUN.jpeg"), caption: "Model UN Secretary General - Preparing for conference as Head of MUN organization" },
-        { url: assetUrl("/MUN/VihaanMUN.jpeg"), caption: "MUN Conference Leadership - Managing 800+ delegates across multiple Model UN events" },
+        {
+          url: assetUrl("/MUN/VihaangoingtoMUN.jpeg"),
+          caption: "Conference Day — Heading to lead the team as Secretary-General for Ravenwood Model UN.",
+        },
+        {
+          url: assetUrl("/MUN/VihaanMUN.jpeg"),
+          caption: "Model UN Leadership — Overseeing 800+ delegates and coordinating 15 committees during conference sessions.",
+        },
       ],
     },
     {
@@ -599,9 +614,18 @@ function App() {
       impactNarrative:
         "Leading this nationwide initiative taught me how to coordinate complex logistics across all 50 states and manage diverse volunteer teams. I'm proud that our $105,000 fundraising success directly provided educational support to over 10,000 students, helping remove barriers to their academic success and demonstrating the power of organized community advocacy serving 15,000+ families annually.",
       photos: [
-        { url: assetUrl("/NRIVA/IMG_5946.jpeg"), caption: "NRIVA Community Outreach - Organizing nationwide backpack distribution for students in need" },
-        { url: assetUrl("/NRIVA/IMG_5949.jpeg"), caption: "Student Support Initiative - Leading $105,000 fundraising drive providing 10,000+ backpacks" },
-        { url: assetUrl("/NRIVA/IMG_5950.jpeg"), caption: "NRIVA Youth Committee Leadership - Coordinating 75+ state-level youth coordinators nationwide" },
+        {
+          url: assetUrl("/NRIVA/IMG_5946.jpeg"),
+          caption: "Back2School Impact — Students receiving backpacks filled with school supplies through NRIVA’s nationwide drive.",
+        },
+        {
+          url: assetUrl("/NRIVA/IMG_5949.jpeg"),
+          caption: "Back2School Drive — Leading volunteers in packing and distributing thousands of backpacks for students in need.",
+        },
+        {
+          url: assetUrl("/NRIVA/IMG_5950.jpeg"),
+          caption: "Community Impact — Coordinating 75+ state-level youth leaders to raise $105,000 and deliver 10,000+ backpacks nationwide.",
+        },
       ],
     },
   ], []);
