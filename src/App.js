@@ -342,19 +342,19 @@ function App() {
         },
       ],
       photos: [
-        {
-          url: assetUrl("/AIExercise/ExceriseCVOverlay.png"),
-          caption: "Computer Vision Analysis - Real-time pose estimation overlay detecting exercise form",
-        },
-        {
-          url: assetUrl("/AIExercise/ExerciseGoodForm.png"),
-          caption: "Correct Form Detection - AI model successfully identifying proper exercise posture (92% accuracy)",
-        },
-        {
-          url: assetUrl("/AIExercise/ExerciseBadForm.png"),
-          caption: "Form Correction Alert - System detecting and flagging improper exercise technique",
-        },
-      ],
+  {
+    url: assetUrl("/AIExercise/ExceriseCVOverlay.png"),
+    caption: "Pose Detection Overlay — Real-time computer vision tracking body keypoints to evaluate push-up form accuracy.",
+  },
+  {
+    url: assetUrl("/AIExercise/ExerciseGoodForm.png"),
+    caption: "Good Form Recognition — AI model identifying correct posture with over 92% classification accuracy.",
+  },
+  {
+    url: assetUrl("/AIExercise/ExerciseBadForm.png"),
+    caption: "Form Feedback Generation — System detecting incorrect movement and delivering live corrective guidance.",
+  },
+],
       links: [
         { label: "View Code", url: "https://colab.research.google.com/drive/1aKGmpm-ESD6VGs21iWuOzspcJ8-7ECP5?usp=sharing", target: "_blank" },
       ],
