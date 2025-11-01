@@ -592,7 +592,7 @@ function App() {
       roleType: "Volunteer Lead",
       isVolunteer: true,
       description:
-        "Spearheading a nationwide initiative, I orchestrate a $105,000 fundraising campaign to provide 10,000 backpacks to underserved children across all 50 states. I direct over 75 state-level youth coordinators and pioneer social media strategies to build a sustainable program serving 15,000+ families annually.\n\n" +
+        "Spearheading a nationwide initiative, I orchestrate a $105,000 fundraising campaign to provide 10,000 backpacks to underserved children across 26 states. I direct over 30+ state-level youth coordinators and pioneer social media strategies to build a sustainable program serving 15,000+ families annually.\n\n" +
         "This position blends project management with a deep personal commitment to community advocacy and nationwide impact.",
       responsibilities: [
         "Define project roadmaps, KPIs, and strategic objectives with executive board",
@@ -602,17 +602,17 @@ function App() {
         "Manage budget allocation and financial reporting across initiatives",
       ],
       skills: ["Project Management", "Cross-cultural Communication", "Fundraising"],
-      keyMetrics: ["$105K fundraising campaign", "10,000 backpacks to underserved children", "75+ state-level youth coordinators", "15,000+ families served annually", "All 50 states coverage"],
+      keyMetrics: ["$105K fundraising campaign", "10,000 backpacks to underserved children", "30+ state-level youth coordinators", "15,000+ families served annually", "26 states coverage"],
       achievements: [
         "Created largest youth-led educational support program in NRIVA history",
         "Pioneered innovative social media fundraising strategy adopted organization-wide",
-        "Established sustainable volunteer network spanning all 50 states",
+        "Established sustainable volunteer network spanning across 27 states",
         "Developed replicable program model for other youth organizations",
         "Achieved 95% volunteer retention rate through comprehensive training program",
         "Built partnerships with 200+ schools and community organizations",
       ],
       impactNarrative:
-        "Leading this nationwide initiative taught me how to coordinate complex logistics across all 50 states and manage diverse volunteer teams. I'm proud that our $105,000 fundraising success directly provided educational support to over 10,000 students, helping remove barriers to their academic success and demonstrating the power of organized community advocacy serving 15,000+ families annually.",
+        "Leading this nationwide initiative taught me how to coordinate complex logistics across 26 states and manage diverse volunteer teams. I'm proud that our $105,000 fundraising success directly provided educational support to over 10,000 students, helping remove barriers to their academic success and demonstrating the power of organized community advocacy serving 15,000+ families annually.",
       photos: [
         {
           url: assetUrl("/NRIVA/IMG_5946.jpeg"),
@@ -624,7 +624,7 @@ function App() {
         },
         {
           url: assetUrl("/NRIVA/IMG_5950.jpeg"),
-          caption: "Community Impact — Coordinating 75+ state-level youth leaders to raise $105,000 and deliver 10,000+ backpacks nationwide.",
+          caption: "Community Impact — Coordinating 30+ state-level youth leaders to raise $105,000 and deliver 10,000+ backpacks nationwide.",
         },
       ],
     },
