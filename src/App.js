@@ -606,7 +606,7 @@ function App() {
       achievements: [
         "Created largest youth-led educational support program in NRIVA history",
         "Pioneered innovative social media fundraising strategy adopted organization-wide",
-        "Established sustainable volunteer network spanning across 27 states",
+        "Established sustainable volunteer network spanning across 26 states",
         "Developed replicable program model for other youth organizations",
         "Achieved 95% volunteer retention rate through comprehensive training program",
         "Built partnerships with 200+ schools and community organizations",
