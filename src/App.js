@@ -93,9 +93,9 @@ function App() {
       slug: "project-investedu",
       description: "Financial education platform for young adults with interactive modules.",
       overview:
-        "InvestEDU is a comprehensive financial literacy application designed to teach teenagers about the importance of investing early. With 500+ beta users and 2.8K monthly views, this platform has increased user engagement by 40% and improved users' financial comprehension scores by 25%. Having been personally involved with the stock market through paper trading, I witnessed firsthand how quickly money can compound. To share this valuable knowledge with others, I created InvestEDU.",
+        "InvestEDU is a comprehensive financial literacy application designed to teach teenagers about the importance of investing early. With 500+ beta users and 28K monthly views, this platform has increased user engagement by 40% and improved users' financial comprehension scores by 25%. Having been personally involved with the stock market through paper trading, I witnessed firsthand how quickly money can compound. To share this valuable knowledge with others, I created InvestEDU.",
       tags: ["React", "JS", "CSS", "Financial Education"],
-      details: "### Techniques Implemented:\n- Desmos API Integration for Interactive Graph\n- SVG Graph for main simulator output\n- Vercel Deployment\n- Use of A=Pe^(rt) for compounded money calculations\n\n### Key Features:\n- Interactive budgeting simulator with real-time feedback\n- Investment scenario builder with market data\n- Progress tracking with achievement badges\n- Community challenge boards\n\n### Impact & Statistics:\n- 500+ beta users with growing engagement\n- 2.8K monthly views demonstrating strong user interest\n- 40% increase in user engagement through platform improvements\n- 25% improvement in users' financial comprehension scores\n- Interactive financial simulator with personalized quiz system\n- Dynamic budgeting and investing education tools\n- Proven educational effectiveness in financial literacy",
+      details: "### Techniques Implemented:\n- Desmos API Integration for Interactive Graph\n- SVG Graph for main simulator output\n- Vercel Deployment\n- Use of A=Pe^(rt) for compounded money calculations\n\n### Key Features:\n- Interactive budgeting simulator with real-time feedback\n- Investment scenario builder with market data\n- Progress tracking with achievement badges\n- Community challenge boards\n\n### Impact & Statistics:\n- 500+ beta users with growing engagement\n- 28K monthly views demonstrating strong user interest\n- 40% increase in user engagement through platform improvements\n- 25% improvement in users' financial comprehension scores\n- Interactive financial simulator with personalized quiz system\n- Dynamic budgeting and investing education tools\n- Proven educational effectiveness in financial literacy",
       photos: [
   { 
     url: assetUrl("/InvestEDU/investedhome.png"), 
@@ -135,7 +135,7 @@ function App() {
   },
   { 
     url: assetUrl("/InvestEDU/investedu-analytics-dashboard.jpeg"), 
-    caption: "Analytics Dashboard — Tracking 2.8K+ active users with engagement metrics and learning insights." 
+    caption: "Analytics Dashboard — Tracking 28K+ users with engagement metrics and learning insights." 
   },
 ],
       links: [
@@ -675,8 +675,8 @@ function App() {
       id: 2,
       title: "Full Stack Developer",
       organization: "HSR.Health",
-      year: "Summer 2025",
-      duration: "May 2025 – Jul 2025",
+      year: "Summer 2024",
+      duration: "May 2024 – Jul 2024",
       description:
         "At HSR.Health, I developed a geospatial health risk visualization platform to analyze and display the public health impact of ocean pollution. I created data presentations tracking key environmental health metrics across 27% of global oceans to support evidence-based policy recommendations for key stakeholders.",
       responsibilities: [
