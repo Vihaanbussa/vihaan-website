@@ -72,6 +72,10 @@
     --chart-3: oklch(0.444 0.011 73.639);
     --chart-4: oklch(0.374 0.01 67.558);
     --chart-5: oklch(0.268 0.007 34.298);
+    --award-pink: #ef798a;
+    --award-gold: #fdb515;
+    --award-blue: #003262;
+    --award-mint: #70c1a6;
     --radius: 0.625rem;
     --sidebar: oklch(0.985 0.001 106.423);
     --sidebar-foreground: oklch(0.147 0.004 49.25);
@@ -107,6 +111,10 @@
     --chart-3: oklch(0.444 0.011 73.639);
     --chart-4: oklch(0.374 0.01 67.558);
     --chart-5: oklch(0.268 0.007 34.298);
+    --award-pink: #ff8fa3;
+    --award-gold: #ffd166;
+    --award-blue: #6ea8ff;
+    --award-mint: #8ce0c2;
     --sidebar: oklch(0.216 0.006 56.043);
     --sidebar-foreground: oklch(0.985 0.001 106.423);
     --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -202,6 +210,23 @@
       ) border-box;
     animation: magic-border-spin 4.2s linear infinite;
     box-shadow: 0 14px 34px color-mix(in oklch, var(--accent), transparent 88%);
+  }
+
+  .award-color-border {
+    --magic-angle: 0deg;
+    border-color: transparent;
+    background:
+      linear-gradient(var(--card), var(--card)) padding-box,
+      conic-gradient(
+        from var(--magic-angle),
+        color-mix(in oklch, var(--accent), transparent 70%),
+        var(--award-pink),
+        var(--award-gold),
+        var(--award-mint),
+        var(--award-blue),
+        color-mix(in oklch, var(--accent), transparent 70%)
+      ) border-box;
+    animation: magic-border-spin 4.8s linear infinite;
   }
 
   .clean-work-card {

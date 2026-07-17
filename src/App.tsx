@@ -899,7 +899,7 @@ function AwardSpotlightSection() {
         </div>
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {awardSpotlights.map((award) => (
-            <article key={award.title} className="whimsy-card rounded-lg border bg-card p-5 shadow-sm">
+            <article key={award.title} className="award-color-border whimsy-card rounded-lg border bg-card p-5 shadow-sm">
               <div className="mb-5 flex items-center justify-between gap-3">
                 <span className="rounded-md border border-accent/20 bg-accent/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-accent">{award.year}</span>
                 <Trophy className="size-5 text-accent" />
