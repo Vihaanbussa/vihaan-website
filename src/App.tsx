@@ -654,7 +654,7 @@ function ChipRow({ metrics, links, className = "" }: { metrics?: string[]; links
   return (
     <div className={cn("flex flex-wrap gap-2", className)}>
       {links?.map((link) => (
-        <a key={link.label} href={link.url} target="_blank" rel="noreferrer" className="inline-flex min-h-9 items-center gap-1.5 rounded-md border border-accent/25 bg-accent/10 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-accent transition hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        <a key={link.label} href={link.url} target="_blank" rel="noreferrer" className="award-color-border stone-link-chip inline-flex min-h-9 items-center gap-1.5 rounded-md border px-3 py-2 text-xs font-semibold uppercase tracking-wider text-accent transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
           {link.label}<ExternalLink className="size-3.5" />
         </a>
       ))}
@@ -711,7 +711,7 @@ function WorkCard({ item, onOpen, compact = false }: { item: DetailItem; onOpen:
           <div className="flex flex-wrap gap-1.5">
             {tags.slice(0, compact ? 3 : 4).map((tag) => <span key={tag} className="rounded-md bg-muted px-2 py-1 text-[0.7rem] font-medium text-muted-foreground">{tag}</span>)}
           </div>
-          <Button type="button" variant="outline" size="sm" onClick={() => onOpen(item)} className="whimsy-button gap-1.5">
+          <Button type="button" variant="outline" size="sm" onClick={() => onOpen(item)} className="award-color-border rundown-button whimsy-button gap-1.5 rounded-none">
             Full rundown <ChevronRight className="size-3.5" />
           </Button>
         </div>
@@ -774,8 +774,8 @@ export function App() {
             </div>
           </div>
           <div className="relative z-10">
-            <div className="magic-border portrait-magic rounded-lg border bg-card">
-              <img src={assetUrl("/headshot.png")} alt="Vihaan Bussa" className="aspect-[4/5] w-full rounded-lg border object-cover shadow-sm" />
+            <div className="magic-border award-color-border hero-color-border portrait-magic rounded-lg border bg-card">
+              <img src={assetUrl("/headshot.png")} alt="Vihaan Bussa" className="hero-portrait-image aspect-[4/5] w-full object-cover shadow-sm" />
             </div>
             <div className="mt-4 grid grid-cols-2 gap-3">
               {metrics.map((metric) => (
@@ -928,7 +928,7 @@ function FocusPanel() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {currentFocus.map((item) => (
-            <article key={item.title} className="rounded-lg border bg-card p-5">
+            <article key={item.title} className="award-color-border rounded-lg border bg-card p-5">
               <h3 className="font-semibold tracking-tight">{item.title}</h3>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.body}</p>
             </article>
