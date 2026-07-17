@@ -225,6 +225,7 @@
     inset: -1.35rem;
     z-index: -2;
     border: 2px dashed color-mix(in oklch, var(--accent), transparent 16%);
+    border-right-color: transparent;
     border-radius: calc(var(--radius-lg) + 1.4rem);
     opacity: 0.78;
     pointer-events: none;
