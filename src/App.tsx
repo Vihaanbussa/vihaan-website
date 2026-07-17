@@ -196,10 +196,10 @@ const projects: DetailItem[] = [
     ],
     links: [
       { label: "View Slides", url: "https://canva.link/y9nqk71qq0hsaz7" },
-      { label: "Presentation Script", url: "https://docs.google.com/document/d/1R1ji2c7my19BHOus4xD9yvEMbXpQBc8ay7ZhAy-1e3k/edit?usp=sharing" },
+      { label: "ICDC Article", url: "https://williamsonsource.com/deca-students-earn-international-awards/" },
     ],
-    achievements: ["8th in the world at DECA ICDC", "1st in Tennessee in Innovation Plan", "Clinician-exportable fatigue data", "AI-powered patient question support"],
-    keyMetrics: ["8th worldwide", "1st in Tennessee", "36-patient review sample", "P-value 0.00001057", "Average rating improved from 5.67 to 8.08"],
+    achievements: ["8th out of 200+ teams at DECA ICDC", "1st in Tennessee in Innovation Plan", "Advanced from a field of 2,000+ teams globally", "Clinician-exportable fatigue data", "AI-powered patient question support"],
+    keyMetrics: ["36-patient review sample", "P-value 0.00001057", "Average rating improved from 5.67 to 8.08"],
     challenges: [
       { problem: "Making fatigue visible", solution: "Used GSR sensor readings and calibration to convert skin-conductivity changes into live fatigue trends." },
       { problem: "Keeping clinicians in the loop", solution: "Designed exportable fatigue data so dialysis clinicians could review patient trends outside the appointment." },
@@ -473,7 +473,7 @@ const cardInsights: Record<string, CardInsight> = {
     impact: "Helped dialysis patients track fatigue in real time and share exportable data with clinicians.",
     build: "Built a GSR-based Arduino wearable with HM-10 Bluetooth, live app dashboards, symptom tracking, and an AI assistant.",
     direction: "This project connects hardware, patient experience, and clinician-facing data into one healthcare workflow.",
-    metrics: ["8th worldwide", "1st in Tennessee", "GSR + Arduino"],
+    metrics: ["200+ ICDC teams", "2,000+ global teams", "GSR + Arduino"],
   },
   elderhelper: {
     role: "Embedded systems builder",
@@ -573,7 +573,7 @@ function DetailModal({ item, onClose }: { item: DetailItem; onClose: () => void 
 
   return (
     <div className="fixed inset-0 z-50 flex items-end overflow-y-auto bg-background/80 p-3 backdrop-blur-md sm:items-center sm:p-6" role="dialog" aria-modal="true" aria-labelledby="detail-title" onMouseDown={onClose}>
-      <article className="mx-auto flex h-[92svh] w-full max-w-6xl flex-col overflow-hidden rounded-lg border bg-card shadow-2xl md:grid md:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)]" onMouseDown={(event) => event.stopPropagation()}>
+      <article className="mx-auto flex max-h-[92svh] w-full max-w-6xl flex-col overflow-y-auto rounded-lg border bg-card shadow-2xl md:grid md:h-[92svh] md:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)] md:overflow-hidden" onMouseDown={(event) => event.stopPropagation()}>
         <div className="flex min-h-0 flex-1 flex-col">
           <header className="border-b bg-card/95 p-5 backdrop-blur sm:p-6">
             <div className="flex items-start justify-between gap-4">
@@ -587,7 +587,7 @@ function DetailModal({ item, onClose }: { item: DetailItem; onClose: () => void 
             </div>
           </header>
 
-          <div className="min-h-0 flex-1 overflow-y-auto p-5 sm:p-6">
+          <div className="p-5 sm:p-6 md:min-h-0 md:flex-1 md:overflow-y-auto">
             <div className="space-y-5 text-sm leading-7 text-muted-foreground">
               <section className="rounded-lg border bg-muted/30 p-4 sm:p-5">
                 <p className="text-base leading-7 text-foreground">{item.overview ?? item.description}</p>
@@ -602,8 +602,8 @@ function DetailModal({ item, onClose }: { item: DetailItem; onClose: () => void 
                 {item.details && <InfoBlock title="Details" body={item.details} />}
                 {item.impactNarrative && <InfoBlock title="Outcome" body={item.impactNarrative} />}
                 <ListBlock title="Responsibilities" items={item.responsibilities} />
-                <ListBlock title="Key Metrics" items={item.keyMetrics} />
                 <ListBlock title="Achievements" items={item.achievements} />
+                <ListBlock title="Key Metrics" items={item.keyMetrics} />
                 <ListBlock title="Challenges & Solutions" items={item.challenges?.map((challenge) => `${challenge.problem}: ${challenge.solution}`)} />
                 <ListBlock title="Budget" items={item.budget} />
                 <ListBlock title="Compliance" items={item.compliance} />
@@ -615,7 +615,7 @@ function DetailModal({ item, onClose }: { item: DetailItem; onClose: () => void 
           </div>
         </div>
 
-        <aside className="min-h-0 overflow-y-auto border-t bg-muted/25 p-4 md:border-l md:border-t-0">
+        <aside className="border-t bg-muted/25 p-4 md:min-h-0 md:overflow-y-auto md:border-l md:border-t-0">
           <div className="mb-3 flex items-center justify-between gap-3">
             <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-foreground">Media</h3>
             <p className="text-xs text-muted-foreground">{imageCount} image{imageCount === 1 ? "" : "s"}</p>
@@ -729,7 +729,7 @@ function WorkCard({ item, onOpen, compact = false }: { item: DetailItem; onOpen:
   const usesContainMedia = containMediaCardIds.has(item.id)
 
   return (
-    <article className={cn("clean-work-card whimsy-card flex h-full flex-col overflow-hidden rounded-lg border bg-card text-left", compact ? "sm:grid sm:grid-cols-[150px_1fr]" : "")}>
+    <article className={cn("clean-work-card whimsy-card flex h-full flex-col overflow-hidden rounded-lg border bg-card text-left", compact ? "sm:grid sm:grid-cols-[230px_1fr]" : "")}>
       <div className={cn("relative flex items-center justify-center overflow-hidden", usesLogoMedia ? "bg-background p-6" : "bg-muted", usesDarkLogoBackdrop ? "bg-foreground" : "", usesContainMedia ? "p-4" : "", compact ? "min-h-44 sm:min-h-full" : "")}> 
         <img src={assetUrl(firstImage(item))} alt={usesLogoMedia ? `${item.title} logo` : ""} className={cn(
           usesLogoMedia && "h-24 w-4/5 max-w-[13rem] object-contain saturate-100",
@@ -878,7 +878,7 @@ export function App() {
 
         <section id="experience" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Experience" title="Industry and teaching roles" description="Practical work across AI infrastructure, health analytics, and STEM education." />
-          <div className="grid gap-4 xl:grid-cols-3">{internships.map((item) => <WorkCard key={item.id} item={item} onOpen={setSelected} compact />)}</div>
+          <div className="grid gap-4">{internships.map((item) => <WorkCard key={item.id} item={item} onOpen={setSelected} compact />)}</div>
         </section>
 
         <section id="leadership" className="border-y bg-muted/30 px-4 py-16 sm:px-6 lg:px-8">
