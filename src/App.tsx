@@ -176,6 +176,38 @@ const projects: DetailItem[] = [
     future: ["Expand to 10,000+ patients", "AI health coaching", "Telehealth integration", "Caregiver support"],
   },
   {
+    id: "dialysense",
+    title: "DialySense",
+    kicker: "Wearable dialysis fatigue tracking system",
+    description: "Wearable fatigue tracker for dialysis patients using GSR sensing, Arduino hardware, Bluetooth, a connected app, and AI support.",
+    overview:
+      "DialySense is a wearable fatigue tracking system designed specifically for dialysis patients. It uses a GSR (Galvanic Skin Response) sensor, Arduino UNO, HM-10 Bluetooth module, and connected app to display live fatigue data that can be exported for dialysis clinicians to review.",
+    details:
+      "The system combines a skin-conductivity sensor, onboard calibration flow, Bluetooth data transfer, patient-facing fatigue dashboard, symptom journal, fatigue guide, and AI health assistant. Patients can view live fatigue trends, export data for clinicians, and ask questions through the connected AI experience.",
+    tags: ["Arduino", "GSR Sensor", "Bluetooth", "Healthcare", "AI Assistant", "Mobile App"],
+    photos: [
+      { url: "/DialySense/01-arduino-schematic.png", caption: "Custom Arduino schematic for the DialySense wearable." },
+      { url: "/DialySense/02-how-it-works.png", caption: "How the GSR sensor, Arduino schematic, and companion app connect." },
+      { url: "/DialySense/03-internals-slide.png", caption: "Internal components: buzzer, button, HM-10 Bluetooth module, Arduino UNO, and GSR sensor." },
+      { url: "/DialySense/04-software.png", caption: "DialySense app screens for live fatigue, trends, symptom journaling, AI assistant, and fatigue education." },
+      { url: "/DialySense/05-patient-reviews.png", caption: "Patient review data showing improved motivation after DialySense." },
+      { url: "/DialySense/06-real-internals.jpeg", caption: "Real-life internals of the DialySense hardware box." },
+      { url: "/DialySense/07-icdc-team.jpeg", caption: "DialySense team after placing at DECA ICDC." },
+    ],
+    links: [
+      { label: "View Slides", url: "https://canva.link/y9nqk71qq0hsaz7" },
+      { label: "Presentation Script", url: "https://docs.google.com/document/d/1R1ji2c7my19BHOus4xD9yvEMbXpQBc8ay7ZhAy-1e3k/edit?usp=sharing" },
+    ],
+    achievements: ["8th in the world at DECA ICDC", "1st in Tennessee in Innovation Plan", "Clinician-exportable fatigue data", "AI-powered patient question support"],
+    keyMetrics: ["8th worldwide", "1st in Tennessee", "36-patient review sample", "P-value 0.00001057", "Average rating improved from 5.67 to 8.08"],
+    challenges: [
+      { problem: "Making fatigue visible", solution: "Used GSR sensor readings and calibration to convert skin-conductivity changes into live fatigue trends." },
+      { problem: "Keeping clinicians in the loop", solution: "Designed exportable fatigue data so dialysis clinicians could review patient trends outside the appointment." },
+      { problem: "Helping patients interpret results", solution: "Connected the app to an AI assistant so patients could ask questions about fatigue and symptom patterns." },
+    ],
+    future: ["Clinical pilot expansion", "More symptom categories", "Wearable enclosure refinement", "Clinician dashboard integration"],
+  },
+  {
     id: "elderhelper",
     title: "ElderHelper",
     kicker: "Arduino, IoT, electronics, healthcare",
@@ -436,6 +468,13 @@ const cardInsights: Record<string, CardInsight> = {
     direction: "This is the clearest example of my interest in software that improves real operations and care delivery.",
     metrics: ["200+ patients", "13% to 2% no-shows", "109+ downloads"],
   },
+  dialysense: {
+    role: "Wearable healthcare founder",
+    impact: "Helped dialysis patients track fatigue in real time and share exportable data with clinicians.",
+    build: "Built a GSR-based Arduino wearable with HM-10 Bluetooth, live app dashboards, symptom tracking, and an AI assistant.",
+    direction: "This project connects hardware, patient experience, and clinician-facing data into one healthcare workflow.",
+    metrics: ["8th worldwide", "1st in Tennessee", "GSR + Arduino"],
+  },
   elderhelper: {
     role: "Embedded systems builder",
     impact: "Explored medication safety and fall detection through a physical IoT prototype for elderly care.",
@@ -584,7 +623,7 @@ function DetailModal({ item, onClose }: { item: DetailItem; onClose: () => void 
           <div className="grid gap-3">
             {photos.map((photo, index) => (
               <figure key={`${photo.url}-${index}`} className="overflow-hidden rounded-lg border bg-background shadow-sm">
-                <img src={assetUrl(photo.url)} alt={photo.caption} className="aspect-[16/10] w-full object-cover" loading="lazy" />
+                <img src={assetUrl(photo.url)} alt={photo.caption} className={cn("aspect-[16/10] w-full", photo.url.includes("/DialySense/") ? "bg-muted object-contain" : "object-cover")} loading="lazy" />
                 <figcaption className="border-t px-3 py-2 text-xs leading-5 text-muted-foreground">{photo.caption}</figcaption>
               </figure>
             ))}
@@ -680,17 +719,24 @@ function StoneUnderline({ className = "" }: { className?: string }) {
 
 const logoCardIds = new Set(["karini", "hsr", "mun", "nriva", "robotix", "tsa", "woodland"])
 const darkLogoCardIds = new Set(["hsr"])
+const containMediaCardIds = new Set(["dialysense"])
 
 function WorkCard({ item, onOpen, compact = false }: { item: DetailItem; onOpen: (item: DetailItem) => void; compact?: boolean }) {
   const insight = cardInsights[item.id]
   const tags = item.tags ?? item.skills ?? []
   const usesLogoMedia = logoCardIds.has(item.id)
   const usesDarkLogoBackdrop = darkLogoCardIds.has(item.id)
+  const usesContainMedia = containMediaCardIds.has(item.id)
 
   return (
     <article className={cn("clean-work-card whimsy-card flex h-full flex-col overflow-hidden rounded-lg border bg-card text-left", compact ? "sm:grid sm:grid-cols-[150px_1fr]" : "")}>
-      <div className={cn("relative flex items-center justify-center overflow-hidden", usesLogoMedia ? "bg-background p-6" : "bg-muted", usesDarkLogoBackdrop ? "bg-foreground" : "", compact ? "min-h-44 sm:min-h-full" : "")}> 
-        <img src={assetUrl(firstImage(item))} alt={usesLogoMedia ? `${item.title} logo` : ""} className={cn(usesLogoMedia ? "h-24 w-4/5 max-w-[13rem] object-contain saturate-100" : "w-full object-cover saturate-[0.9]", !usesLogoMedia && (compact ? "h-full min-h-44" : "aspect-[16/9]"))} loading={usesLogoMedia ? "eager" : "lazy"} />
+      <div className={cn("relative flex items-center justify-center overflow-hidden", usesLogoMedia ? "bg-background p-6" : "bg-muted", usesDarkLogoBackdrop ? "bg-foreground" : "", usesContainMedia ? "p-4" : "", compact ? "min-h-44 sm:min-h-full" : "")}> 
+        <img src={assetUrl(firstImage(item))} alt={usesLogoMedia ? `${item.title} logo` : ""} className={cn(
+          usesLogoMedia && "h-24 w-4/5 max-w-[13rem] object-contain saturate-100",
+          usesContainMedia && "aspect-[16/9] w-full object-contain saturate-100",
+          !usesLogoMedia && !usesContainMedia && "w-full object-cover saturate-[0.9]",
+          !usesLogoMedia && !usesContainMedia && (compact ? "h-full min-h-44" : "aspect-[16/9]"),
+        )} loading={usesLogoMedia ? "eager" : "lazy"} />
         <div className={cn("absolute left-3 top-3 rounded-md border bg-background/90 px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground backdrop-blur", compact ? "sm:hidden" : "")}>
           {insight?.role ?? item.kicker}
         </div>
