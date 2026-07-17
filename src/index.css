@@ -305,6 +305,10 @@
     border-radius: var(--radius-lg);
   }
 
+  .portrait-magic.hero-color-border {
+    border-radius: calc(var(--radius-lg) + 0.18rem);
+  }
+
   .portrait-magic::before {
     content: "";
     position: absolute;
@@ -335,7 +339,7 @@
     position: relative;
     z-index: 1;
     display: block;
-    border-radius: calc(var(--radius-lg) - 3px);
+    border-radius: calc(var(--radius-lg) + 0.18rem - 3px);
   }
 
   .whimsy-underline {
