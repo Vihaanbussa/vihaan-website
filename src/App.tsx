@@ -44,6 +44,10 @@ type DetailItem = {
   compliance?: string[]
 }
 
+function assetUrl(path: string) {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`
+}
+
 const navItems = [
   ["about", "About"],
   ["projects", "Projects"],
@@ -580,7 +584,7 @@ function DetailModal({ item, onClose }: { item: DetailItem; onClose: () => void 
           <div className="grid gap-3">
             {photos.map((photo, index) => (
               <figure key={`${photo.url}-${index}`} className="overflow-hidden rounded-lg border bg-background shadow-sm">
-                <img src={photo.url} alt={photo.caption} className="aspect-[16/10] w-full object-cover" loading="lazy" />
+                <img src={assetUrl(photo.url)} alt={photo.caption} className="aspect-[16/10] w-full object-cover" loading="lazy" />
                 <figcaption className="border-t px-3 py-2 text-xs leading-5 text-muted-foreground">{photo.caption}</figcaption>
               </figure>
             ))}
@@ -686,7 +690,7 @@ function WorkCard({ item, onOpen, compact = false }: { item: DetailItem; onOpen:
   return (
     <article className={cn("clean-work-card whimsy-card flex h-full flex-col overflow-hidden rounded-lg border bg-card text-left", compact ? "sm:grid sm:grid-cols-[150px_1fr]" : "")}>
       <div className={cn("relative flex items-center justify-center overflow-hidden", usesLogoMedia ? "bg-background p-6" : "bg-muted", usesDarkLogoBackdrop ? "bg-foreground" : "", compact ? "min-h-44 sm:min-h-full" : "")}> 
-        <img src={firstImage(item)} alt={usesLogoMedia ? `${item.title} logo` : ""} className={cn(usesLogoMedia ? "h-24 w-4/5 max-w-[13rem] object-contain saturate-100" : "w-full object-cover saturate-[0.9]", !usesLogoMedia && (compact ? "h-full min-h-44" : "aspect-[16/9]"))} loading={usesLogoMedia ? "eager" : "lazy"} />
+        <img src={assetUrl(firstImage(item))} alt={usesLogoMedia ? `${item.title} logo` : ""} className={cn(usesLogoMedia ? "h-24 w-4/5 max-w-[13rem] object-contain saturate-100" : "w-full object-cover saturate-[0.9]", !usesLogoMedia && (compact ? "h-full min-h-44" : "aspect-[16/9]"))} loading={usesLogoMedia ? "eager" : "lazy"} />
         <div className={cn("absolute left-3 top-3 rounded-md border bg-background/90 px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground backdrop-blur", compact ? "sm:hidden" : "")}>
           {insight?.role ?? item.kicker}
         </div>
@@ -746,7 +750,7 @@ export function App() {
           <div className="hidden items-center gap-1 md:flex">
             {navItems.map(([href, label]) => <a key={href} href={`#${href}`} className="rounded-md px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{label}</a>)}
             <span className="ml-3 border-l pl-4">
-              <img src="/cal-logo-blue-gold.png" alt="Cal" className="size-9 rounded-md object-cover" />
+              <img src={assetUrl("/cal-logo-blue-gold.png")} alt="Cal" className="size-9 rounded-md object-cover" />
             </span>
           </div>
           <Button className="size-11 md:hidden" variant="ghost" size="icon" onClick={() => setMenuOpen((value) => !value)} aria-label="Toggle navigation"><Menu /></Button>
@@ -755,7 +759,7 @@ export function App() {
       </header>
 
       <main id="main">
-        <section id="home" className="relative mx-auto grid max-w-7xl gap-10 overflow-hidden px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
+        <section id="home" className="relative mx-auto grid max-w-7xl gap-10 overflow-visible px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
           <div className="relative z-20 flex flex-col justify-center">
             <div className="mb-5 flex flex-wrap gap-2">
               {highlights.map((item) => <span key={item} className="rounded-md border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground">{item}</span>)}
@@ -771,7 +775,7 @@ export function App() {
           </div>
           <div className="relative z-10">
             <div className="magic-border portrait-magic rounded-lg border bg-card">
-              <img src="/headshot.png" alt="Vihaan Bussa" className="aspect-[4/5] w-full rounded-lg border object-cover shadow-sm" />
+              <img src={assetUrl("/headshot.png")} alt="Vihaan Bussa" className="aspect-[4/5] w-full rounded-lg border object-cover shadow-sm" />
             </div>
             <div className="mt-4 grid grid-cols-2 gap-3">
               {metrics.map((metric) => (
@@ -800,8 +804,8 @@ export function App() {
               </div>
               <div className="relative grid gap-3 rounded-lg border bg-background p-5 sm:grid-cols-2 sm:pr-64">
                 <div className="absolute bottom-5 right-5 top-5 hidden w-56 border-l pl-6 sm:flex sm:flex-col sm:items-center">
-                  <img src="/uc-berkeley-logo.svg" alt="UC Berkeley" className="mt-3 h-auto w-48" />
-                  <img src="/uc-berkeley-seal.svg" alt="UC Berkeley seal" className="mt-8 size-24 object-contain" />
+                  <img src={assetUrl("/uc-berkeley-logo.svg")} alt="UC Berkeley" className="mt-3 h-auto w-48" />
+                  <img src={assetUrl("/uc-berkeley-seal.svg")} alt="UC Berkeley seal" className="mt-8 size-24 object-contain" />
                 </div>
                 <InfoPill icon={School} label="UC Berkeley" value="Freshman studying Computer Science" />
                 <InfoPill icon={GraduationCap} label="Academics" value="GPA 4.0/4.0" />
