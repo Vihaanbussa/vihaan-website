@@ -719,6 +719,7 @@ function StoneUnderline({ className = "" }: { className?: string }) {
 
 const logoCardIds = new Set(["karini", "hsr", "mun", "nriva", "robotix", "tsa", "woodland"])
 const darkLogoCardIds = new Set(["hsr"])
+const lightLogoCardIds = new Set(["karini"])
 const containMediaCardIds = new Set(["dialysense"])
 
 function WorkCard({ item, onOpen, compact = false }: { item: DetailItem; onOpen: (item: DetailItem) => void; compact?: boolean }) {
@@ -726,11 +727,12 @@ function WorkCard({ item, onOpen, compact = false }: { item: DetailItem; onOpen:
   const tags = item.tags ?? item.skills ?? []
   const usesLogoMedia = logoCardIds.has(item.id)
   const usesDarkLogoBackdrop = darkLogoCardIds.has(item.id)
+  const usesLightLogoBackdrop = lightLogoCardIds.has(item.id)
   const usesContainMedia = containMediaCardIds.has(item.id)
 
   return (
     <article className={cn("clean-work-card whimsy-card flex h-full flex-col overflow-hidden rounded-lg border bg-card text-left", compact ? "sm:grid sm:grid-cols-[230px_1fr]" : "")}>
-      <div className={cn("relative flex items-center justify-center overflow-hidden", usesLogoMedia ? "bg-background p-6" : "bg-muted", usesDarkLogoBackdrop ? "bg-foreground" : "", usesContainMedia ? "p-4" : "", compact ? "min-h-44 sm:min-h-full" : "")}> 
+      <div className={cn("relative flex items-center justify-center overflow-hidden", usesLogoMedia ? "bg-background p-6" : "bg-muted", usesDarkLogoBackdrop ? "bg-neutral-950" : "", usesLightLogoBackdrop ? "bg-white" : "", usesContainMedia ? "p-4" : "", compact ? "min-h-44 sm:min-h-full" : "")}> 
         <img src={assetUrl(firstImage(item))} alt={usesLogoMedia ? `${item.title} logo` : ""} className={cn(
           usesLogoMedia && "h-24 w-4/5 max-w-[13rem] object-contain saturate-100",
           usesContainMedia && "aspect-[16/9] w-full object-contain saturate-100",
