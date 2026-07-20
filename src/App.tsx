@@ -843,13 +843,13 @@ export function App() {
               <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Curiosity, execution, and real users.</h2>
               <StoneUnderline className="mt-3" />
             </div>
-            <div className="grid gap-6 text-base leading-8 text-muted-foreground 2xl:grid-cols-[0.82fr_1.18fr] 2xl:items-start">
-              <div className="grid gap-6">
+            <div className="grid gap-6 text-base leading-8 text-muted-foreground">
+              <div className="grid gap-5 xl:grid-cols-2">
                 <p>I&apos;m a UC Berkeley Computer Science freshman who likes turning technical curiosity into useful work. My programming journey began at age 13 with Python and has grown into web development, machine learning, product design, and applied research.</p>
                 <p>I was accepted to Y Combinator Startup School 2026, which brings together ambitious technical builders to learn from YC partners, meet peers, and think more clearly about building products people want.</p>
               </div>
-              <div className="relative grid gap-3 rounded-lg border bg-background p-5 sm:grid-cols-2 sm:pr-64">
-                <div className="absolute bottom-5 right-5 top-5 hidden w-56 border-l pl-6 sm:flex sm:flex-col sm:items-center">
+              <div className="grid gap-4 rounded-lg border bg-background p-5 sm:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_240px]">
+                <div className="hidden border-l pl-6 xl:col-start-3 xl:row-span-2 xl:row-start-1 xl:flex xl:flex-col xl:items-center xl:justify-center">
                   <img src={assetUrl("/uc-berkeley-logo.svg")} alt="UC Berkeley" className="mt-3 h-auto w-48" />
                   <img src={assetUrl("/uc-berkeley-seal.svg")} alt="UC Berkeley seal" className="mt-8 size-24 object-contain" />
                 </div>
