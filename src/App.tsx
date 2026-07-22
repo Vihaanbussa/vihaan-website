@@ -257,11 +257,9 @@ const research: DetailItem[] = [
     overview:
       "This is the second phase of my NFL prediction research: instead of only comparing AI picks against analysts, I built a working product that predicts upcoming games with engineered football features, saved ML models, and user-entered sportsbook lines.",
     details:
-      "Methodology: collected NFL schedules, play-by-play efficiency, team stats, quarterback data, injuries, rosters, rookie draft features, weather, rest, Elo context, and sportsbook lines through nflverse data. I converted the raw data into pre-game feature rows, avoided data leakage with walk-forward validation, trained separate moneyline, spread, total, home-score, away-score, and residual models, then served predictions through a FastAPI backend and React frontend.",
+      "Step 1: I collected NFL schedules, play-by-play, team stats, player stats, injuries, depth charts, rosters, draft picks, expected starting quarterbacks, weather context, rest, Elo, and sportsbook lines with nflverse data through nflreadpy.\n\nStep 2: I cleaned and joined the raw tables with Polars, pandas, and NumPy, then transformed them into one pre-game feature row per matchup. Each row only used information that would have been known before kickoff.\n\nStep 3: I engineered recent-form features with rolling five-game windows, including EPA per play, success rate, explosive-play rate, red-zone efficiency, passing and rushing output, turnovers, sacks, penalties, pace, scoring-drive rate, quarterback EPA, injury burden, roster strength, rookie impact, and betting-market context.\n\nStep 4: I avoided data leakage with walk-forward validation. To test a season, the model trained only on earlier seasons instead of randomly mixing future games into the training set.\n\nStep 5: I trained separate scikit-learn models for moneyline, spread, over/under, home score, away score, and total residual. I tested regularized logistic regression and histogram gradient boosting, then saved the selected pipelines and exact feature lists with Joblib.\n\nStep 6: I evaluated classification models with log loss, accuracy, Brier score, and ROC-AUC, and evaluated score models with MAE and RMSE. I cared most about probability quality because the final tool compares model probability against sportsbook odds.\n\nStep 7: I built a FastAPI backend with Pydantic validation to load the saved models, accept custom user lines, run the matchup through the model artifacts, and return projected scores, win probability, spread probability, total probability, and expected value.\n\nStep 8: I built the React and Vite frontend so users can search upcoming 2026 games, enter their own moneyline/spread/total odds, and see the best-value side. I deployed the frontend with GitHub Pages, the API with Render, and added a GitHub Actions refresh workflow for updated data.",
     tags: ["scikit-learn", "FastAPI", "React", "nflverse", "Polars"],
     photos: [
-      { url: "/NFLPredictor/01-predictor-search.png", caption: "Game search and data status screen for the deployed predictor." },
-      { url: "/NFLPredictor/02-custom-lines.png", caption: "Custom sportsbook line inputs for moneyline, spread, totals, and odds." },
       { url: "/NFLPredictor/03-prediction-results.png", caption: "Prediction output with score projection, probabilities, and expected-value sides." },
     ],
     links: [
@@ -270,10 +268,11 @@ const research: DetailItem[] = [
       { label: "API Docs", url: "https://nflgamepredictor-api.onrender.com/docs" },
     ],
     responsibilities: [
-      "Built a full prediction pipeline from raw nflverse data to deployed model artifacts.",
-      "Engineered rolling five-game form, quarterback, injury, roster, draft, weather, rest, Elo, and sportsbook features.",
-      "Created a React interface where users can search 2026 games and enter their own lines before running predictions.",
-      "Deployed the frontend through GitHub Pages and the FastAPI backend through Render.",
+      "Collected and processed NFL data with nflreadpy, Polars, pandas, NumPy, and nflverse datasets.",
+      "Built leakage-safe pre-game features from historical schedules, play-by-play, injuries, rosters, quarterbacks, draft picks, and betting lines.",
+      "Trained and compared scikit-learn pipelines for moneyline, spread, total, score, and residual prediction.",
+      "Served the models through FastAPI and Pydantic, then connected them to a React/Vite frontend.",
+      "Deployed the frontend through GitHub Pages, the backend through Render, and data refreshes through GitHub Actions.",
     ],
     achievements: [
       "Extended the original AP Research paper into a live, usable machine-learning product.",
