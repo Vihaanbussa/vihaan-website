@@ -250,6 +250,44 @@ const research: DetailItem[] = [
     future: ["Real-time betting data", "Prediction API", "International football leagues"],
   },
   {
+    id: "nfl-predictor",
+    title: "NFL Game Predictor",
+    kicker: "Research Paper Part 2, ML product build",
+    description: "Built a deployed prediction tool that turns the original NFL betting research into a custom-line model, API, and React website.",
+    overview:
+      "This is the second phase of my NFL prediction research: instead of only comparing AI picks against analysts, I built a working product that predicts upcoming games with engineered football features, saved ML models, and user-entered sportsbook lines.",
+    details:
+      "Methodology: collected NFL schedules, play-by-play efficiency, team stats, quarterback data, injuries, rosters, rookie draft features, weather, rest, Elo context, and sportsbook lines through nflverse data. I converted the raw data into pre-game feature rows, avoided data leakage with walk-forward validation, trained separate moneyline, spread, total, home-score, away-score, and residual models, then served predictions through a FastAPI backend and React frontend.",
+    tags: ["scikit-learn", "FastAPI", "React", "nflverse", "Polars"],
+    photos: [
+      { url: "/NFLPredictor/01-predictor-search.png", caption: "Game search and data status screen for the deployed predictor." },
+      { url: "/NFLPredictor/02-custom-lines.png", caption: "Custom sportsbook line inputs for moneyline, spread, totals, and odds." },
+      { url: "/NFLPredictor/03-prediction-results.png", caption: "Prediction output with score projection, probabilities, and expected-value sides." },
+    ],
+    links: [
+      { label: "Try Website", url: "https://vihaanbussa.github.io/nflgamepredictor/" },
+      { label: "GitHub", url: "https://github.com/Vihaanbussa/nflgamepredictor" },
+      { label: "API Docs", url: "https://nflgamepredictor-api.onrender.com/docs" },
+    ],
+    responsibilities: [
+      "Built a full prediction pipeline from raw nflverse data to deployed model artifacts.",
+      "Engineered rolling five-game form, quarterback, injury, roster, draft, weather, rest, Elo, and sportsbook features.",
+      "Created a React interface where users can search 2026 games and enter their own lines before running predictions.",
+      "Deployed the frontend through GitHub Pages and the FastAPI backend through Render.",
+    ],
+    achievements: [
+      "Extended the original AP Research paper into a live, usable machine-learning product.",
+      "Used walk-forward validation to reduce future-data leakage and evaluate model performance more realistically.",
+      "Trained separate models for moneyline, spread, over/under, projected scores, and total residuals.",
+    ],
+    keyMetrics: ["2018-2025 historical training data", "6 saved model artifacts", "Daily data refresh workflow"],
+    challenges: [
+      { problem: "Data leakage", solution: "Built each row from information available before that game and validated by season." },
+      { problem: "Line movement", solution: "Made sportsbook lines user inputs so predictions can be rerun with current odds." },
+    ],
+    future: ["Weekly 2026 refreshes", "Model calibration dashboard", "Injury-news weighting", "Expanded feature importance views"],
+  },
+  {
     id: "exercise-ai",
     title: "AI in Tracking Exercise Form",
     kicker: "Computer vision, TensorFlow, OpenCV",
@@ -482,6 +520,13 @@ const cardInsights: Record<string, CardInsight> = {
     direction: "This sharpened how I evaluate models against real baselines instead of just demoing outputs.",
     metrics: ["58% spread success", "+7% vs analysts", "Backtested"],
   },
+  "nfl-predictor": {
+    role: "Research-to-product builder",
+    impact: "Turned the original NFL betting research into a deployed predictor for upcoming games and custom sportsbook lines.",
+    build: "Built walk-forward ML training, saved scikit-learn models, a FastAPI backend, React frontend, and automated data refreshes.",
+    direction: "This is the applied follow-through: taking a research question and making it usable as software.",
+    metrics: ["6 model artifacts", "FastAPI + React", "Daily refresh"],
+  },
   "exercise-ai": {
     role: "Computer vision researcher",
     impact: "Used pose estimation to flag exercise form issues and reduce injury risk through real-time feedback.",
@@ -616,7 +661,7 @@ function DetailModal({ item, onClose }: { item: DetailItem; onClose: () => void 
           <div className="grid gap-3">
             {photos.map((photo, index) => (
               <figure key={`${photo.url}-${index}`} className="overflow-hidden rounded-lg border bg-background shadow-sm">
-                <img src={assetUrl(photo.url)} alt={photo.caption} className={cn("aspect-[16/10] w-full", photo.url.includes("/DialySense/") ? "bg-muted object-contain" : "object-cover")} loading="lazy" />
+                <img src={assetUrl(photo.url)} alt={photo.caption} className={cn("aspect-[16/10] w-full", photo.url.includes("/DialySense/") || photo.url.includes("/NFLPredictor/") ? "bg-muted object-contain" : "object-cover")} loading="lazy" />
                 <figcaption className="border-t px-3 py-2 text-xs leading-5 text-muted-foreground">{photo.caption}</figcaption>
               </figure>
             ))}
@@ -713,7 +758,7 @@ function StoneUnderline({ className = "" }: { className?: string }) {
 const logoCardIds = new Set(["karini", "hsr", "mun", "nriva", "robotix", "tsa", "woodland"])
 const darkLogoCardIds = new Set(["hsr"])
 const lightLogoCardIds = new Set(["karini"])
-const containMediaCardIds = new Set(["dialysense"])
+const containMediaCardIds = new Set(["dialysense", "nfl-predictor"])
 
 function WorkCard({ item, onOpen, compact = false }: { item: DetailItem; onOpen: (item: DetailItem) => void; compact?: boolean }) {
   const insight = cardInsights[item.id]
