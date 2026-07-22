@@ -57,13 +57,6 @@ const navItems = [
   ["contact", "Contact"],
 ]
 
-const highlights = [
-  "YC Startup School 2026",
-  "ACT 36 superscore",
-  "GPA 4.0/4.0",
-  "National Merit Scholar",
-]
-
 const awardSpotlights = [
   {
     title: "1st in IEEE SSCS International Arduino Competition",
@@ -809,9 +802,6 @@ export function App() {
       <main id="main">
         <section id="home" className="relative mx-auto grid max-w-7xl gap-10 overflow-visible px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
           <div className="relative z-20 flex flex-col justify-center">
-            <div className="mb-5 flex flex-wrap gap-2">
-              {highlights.map((item) => <span key={item} className="rounded-md border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground">{item}</span>)}
-            </div>
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">Student founder and software builder</p>
             <h1 className="mt-4 max-w-4xl text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">Building practical software across finance, healthcare, and applied AI.</h1>
             <StoneUnderline className="mt-5" />
