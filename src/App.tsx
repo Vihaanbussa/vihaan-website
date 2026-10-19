@@ -42,15 +42,14 @@ const workSections: WorkSection[] = [
     label: "Experience",
     noun: "roles",
     description:
-      "Practical work across AI infrastructure, health analytics, and STEM education.",
+      "Where I've worked: AI infrastructure, health analytics, dialysis care, and teaching robotics.",
     items: orderBy(internships, ["karini", "hsr", "dci", "robotix"]),
   },
   {
     id: "projects",
     label: "Projects",
     noun: "case studies",
-    description:
-      "Finance, healthcare, and hardware projects, each written up as a short case study.",
+    description: "Things I've built, each written up as a short case study.",
     items: orderBy(projects, [
       "elderhelper",
       "investedu",
@@ -63,7 +62,7 @@ const workSections: WorkSection[] = [
     label: "Research",
     noun: "studies",
     description:
-      "Academic explorations in prediction, computer vision, and model evaluation.",
+      "Research I've done on prediction, computer vision, and model evaluation.",
     items: orderBy(research, ["nfl-predictor", "nfl-ai", "exercise-ai"]),
   },
   {
@@ -71,7 +70,7 @@ const workSections: WorkSection[] = [
     label: "Leadership",
     noun: "programs",
     description:
-      "Student organizations, civic engagement, robotics mentorship, and nationwide volunteer coordination.",
+      "Clubs, conferences, and programs I've run, from robotics to Model UN to a national backpack drive.",
     items: orderBy(leadership, [
       "robotics-club",
       "mun",
@@ -133,7 +132,7 @@ const pages: Page[] = [
   {
     id: "about",
     label: "About",
-    blurb: "Background, a few numbers, and what I'm focused on right now.",
+    blurb: "A bit about me, a few numbers, and what I'm focused on right now.",
   },
   ...workSections.map((section) => ({
     id: section.id,
@@ -145,13 +144,13 @@ const pages: Page[] = [
     id: "awards",
     label: "Awards",
     blurb:
-      "Competition results across entrepreneurship, DECA, robotics, hardware engineering, TSA, and academics.",
+      "Competitions I've won or placed in, across entrepreneurship, DECA, robotics, hardware, TSA, and academics.",
     count: `${awardSpotlights.length} awards`,
   },
   {
     id: "contact",
     label: "Contact",
-    blurb: "Email, and where else to find me.",
+    blurb: "Email me, or find me wherever else I am online.",
     count: `${contactLinks.length} links`,
   },
 ]
@@ -573,16 +572,16 @@ function HomePage() {
         <div className="space-y-6">
           <p className={mono}>Vihaan Bussa · UC Berkeley, Computer Science</p>
           <h1 className="text-3xl leading-tight font-medium tracking-tight text-balance sm:text-4xl">
-            Building practical software{" "}
+            I build practical software{" "}
             <span className="text-muted-foreground">
               across finance, healthcare, and applied AI.
             </span>
           </h1>
           <p className="text-muted-foreground">
-            I&apos;m Vihaan Bussa, a freshman studying Computer Science at UC
-            Berkeley, building products, research, and community programs with
-            measurable outcomes, from InvestEDU&apos;s financial education
-            platform to Project CARE&apos;s dialysis support tools.
+            I&apos;m Vihaan, a freshman studying Computer Science at UC
+            Berkeley. I like building things people actually use, from
+            InvestEDU, which teaches teens to invest, to Project CARE, which
+            helps dialysis patients, with a few ML projects in between.
           </p>
           <p className="flex flex-wrap gap-x-6 gap-y-2">
             <TextLink href="#/projects">View projects →</TextLink>
@@ -633,16 +632,15 @@ function AboutPage() {
         <Row label="Bio">
           <div className="space-y-4">
             <p>
-              I&apos;m a UC Berkeley Computer Science freshman who likes turning
-              technical curiosity into useful work. My programming journey began
-              at age 13 with Python and has grown into web development, machine
+              I&apos;m a Computer Science freshman at UC Berkeley, and I like
+              turning curiosity into things that work. I started programming at
+              13 with Python, and that has grown into web development, machine
               learning, product design, and applied research.
             </p>
             <p className="text-muted-foreground">
-              I was accepted to Y Combinator Startup School 2026, which brings
-              together ambitious technical builders to learn from YC partners,
-              meet peers, and think more clearly about building products people
-              want.
+              I got into Y Combinator Startup School 2026, which puts ambitious
+              technical builders in a room with YC partners and each other to
+              think harder about building things people want.
             </p>
           </div>
         </Row>
@@ -831,7 +829,7 @@ function DetailPage({
             </p>
           </Row>
         )}
-        {insight && <Row label="Numbers">{insight.metrics.join(" · ")}</Row>}
+        {insight && <Row label="Highlights">{insight.metrics.join(" · ")}</Row>}
         {tags && tags.length > 0 && (
           <Row label="Stack">
             <span className="text-muted-foreground">{tags.join(", ")}</span>
@@ -862,18 +860,18 @@ function DetailPage({
             <p className="text-muted-foreground">{item.impactNarrative}</p>
           </Row>
         )}
-        <ListRow label="Responsibilities" items={item.responsibilities} />
-        <ListRow label="Achievements" items={item.achievements} />
-        <ListRow label="Key metrics" items={item.keyMetrics} />
+        <ListRow label="What I did" items={item.responsibilities} />
+        <ListRow label="Wins" items={item.achievements} />
+        <ListRow label="By the numbers" items={item.keyMetrics} />
         <ListRow
-          label="Challenges"
+          label="Hard parts"
           items={item.challenges?.map(
             (challenge) => `${challenge.problem}: ${challenge.solution}`
           )}
         />
         <ListRow label="Budget" items={item.budget} />
         <ListRow label="Compliance" items={item.compliance} />
-        <ListRow label="Future work" items={item.future} />
+        <ListRow label="Up next" items={item.future} />
       </Ledger>
 
       <Pager
@@ -952,8 +950,8 @@ function Gallery({
 }
 
 // Bolds the "Label:" prefixes the content uses to structure long paragraphs.
-const labelPattern = /([A-Z][A-Za-z &/.-]{1,36}:)/g
-const isLabel = /^[A-Z][A-Za-z &/.-]{1,36}:$/
+const labelPattern = /([A-Z][A-Za-z' &/-]{1,36}:)/g
+const isLabel = /^[A-Z][A-Za-z' &/-]{1,36}:$/
 
 function EmphasizedText({ text }: { text: string }) {
   return (
