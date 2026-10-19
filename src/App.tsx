@@ -11,7 +11,7 @@ import {
   metrics,
   projects,
   research,
-  technicalSkills,
+  skillGroups,
   type DetailItem,
   type GalleryImage,
 } from "@/data"
@@ -43,7 +43,7 @@ const workSections: WorkSection[] = [
     noun: "roles",
     description:
       "Practical work across AI infrastructure, health analytics, and STEM education.",
-    items: orderBy(internships, ["karini", "hsr", "robotix"]),
+    items: orderBy(internships, ["karini", "hsr", "dci", "robotix"]),
   },
   {
     id: "projects",
@@ -82,7 +82,7 @@ const workSections: WorkSection[] = [
   },
 ]
 
-const email = "bussavihaan@gmail.com"
+const email = "vbussa@berkeley.edu"
 
 const contactLinks = [
   { label: "Email", value: email, href: `mailto:${email}` },
@@ -104,7 +104,16 @@ const contactLinks = [
 ]
 
 const aboutFacts = [
-  { label: "School", value: "UC Berkeley, freshman studying Computer Science" },
+  {
+    label: "School",
+    value:
+      "UC Berkeley, B.A. Computer Science, College of Computing, Data Science, and Society. Expected May 2029.",
+  },
+  {
+    label: "Coursework",
+    value:
+      "Computer Programs, Data Structures and Algorithms, Linear Algebra/Differential Equations, Economics (in progress)",
+  },
   { label: "Academics", value: "GPA 4.0/4.0" },
   {
     label: "Testing",
@@ -348,7 +357,7 @@ function SiteFooter() {
           height={15}
           className="h-[15px] w-5 rounded-[2px] object-cover"
         />
-        Computer Science freshman at UC Berkeley
+        Computer Science at UC Berkeley, Class of 2029
       </span>
     </footer>
   )
@@ -685,9 +694,11 @@ function AboutPage() {
           </ul>
         </Row>
 
-        <Row label="Stack">
-          <p className="text-muted-foreground">{technicalSkills.join(", ")}</p>
-        </Row>
+        {skillGroups.map((group) => (
+          <Row key={group.label} label={group.label}>
+            <p className="text-muted-foreground">{group.items.join(", ")}</p>
+          </Row>
+        ))}
       </Ledger>
     </PageFrame>
   )
@@ -745,8 +756,10 @@ function ContactPage() {
             <TextLink href={link.href}>{link.value}</TextLink>
           </Row>
         ))}
-        <Row label="Location">San Francisco Bay Area</Row>
-        <Row label="School">UC Berkeley, Computer Science</Row>
+        <Row label="Location">Berkeley, CA</Row>
+        <Row label="School">
+          UC Berkeley, B.A. Computer Science, expected May 2029
+        </Row>
       </Ledger>
     </PageFrame>
   )

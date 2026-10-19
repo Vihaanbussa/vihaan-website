@@ -102,24 +102,30 @@ export const awardSpotlights = [
 ]
 
 export const metrics = [
-  { value: "500+", label: "InvestEDU beta users" },
-  { value: "200+", label: "patients improved through Project CARE" },
-  { value: "600+", label: "AI recipes migrated at Karini AI" },
-  { value: "800+", label: "Model UN delegates led" },
+  { value: "28,000", label: "InvestEDU users" },
+  { value: "200+", label: "patients across 15 clinics through Project CARE" },
+  { value: "600+", label: "client configurations migrated at Karini AI" },
+  { value: "900", label: "Model UN delegates led" },
 ]
 
 export const projects: DetailItem[] = [
   {
     id: "investedu",
     title: "InvestEDU",
-    kicker: "Financial education platform",
+    kicker: "Financial education platform, 2023 - Present",
     description:
-      "Financial education platform for young adults with interactive modules.",
+      "Financial-literacy platform pairing Desmos-based market simulations with adaptive quizzes, grown to 28,000 users.",
     overview:
-      "InvestEDU teaches teenagers the importance of investing early through interactive tools, calculators, a glossary, quizzes, budgeting workflows, and an AI assistant. The platform grew to 500+ beta users, 2.8K monthly views, a 40% engagement lift, and a 25% improvement in financial comprehension scores.",
+      "InvestEDU teaches teenagers the importance of investing early through Desmos-based market simulations, adaptive quizzes that resurface what is missed, calculators, a glossary, budgeting workflows, and an AI assistant. It grew to 28,000 users after a macroeconomics course of 120 students adopted it for classwork mid-semester, and has spread to 45 teachers, 12 student clubs, and 3 nonprofits. Measured comprehension rose 25% across the 18 students formally tested.",
     details:
-      "Techniques Implemented: Desmos API integration, SVG graphing, Vercel deployment, and A=Pe^(rt) compound growth calculations. Key Features: budgeting simulator, investment scenario builder, progress tracking, achievement badges, community challenge boards, investment comparison, calculator, glossary, personality quiz, and AI guidance.",
+      "Techniques Implemented: Desmos API integration, SVG graphing, Vercel deployment, A=Pe^(rt) compound growth calculations, and a spaced-repetition engine that reweights each question by past misses, holding review sets to the student's 20 concepts. Key Features: budgeting simulator, investment scenario builder, progress tracking, achievement badges, community challenge boards, investment comparison, calculator, glossary, personality quiz, and AI guidance.",
     tags: ["React", "JavaScript", "CSS", "Financial Education"],
+    keyMetrics: [
+      "28,000 users",
+      "45 teachers, 12 student clubs, and 3 nonprofits",
+      "25% comprehension gain across the 18 students formally tested",
+      "Adopted mid-semester by a 120-student macroeconomics course",
+    ],
     photos: [
       { url: "/InvestEDU/investedhome.png", caption: "InvestEDU home page." },
       {
@@ -169,14 +175,23 @@ export const projects: DetailItem[] = [
   {
     id: "care",
     title: "Project CARE",
-    kicker: "Healthcare technology and social impact",
+    kicker: "Dialysis Clinic, Inc., Aug 2024 - May 2025",
     description:
-      "Improving quality of life for dialysis patients through clinical and patient-facing tools.",
+      "Technical lead for Project CARE at Dialysis Clinic, Inc., shipping renal nutrition guidance and self-service scheduling to 200+ patients across 15 clinics.",
     overview:
-      "Project CARE improves life for dialysis patients and supports clinic operations at Dialysis Clinic, Inc. The work includes a mobile app for personalized meal planning, appointment management, and awareness campaigns, with implementation across DCI clinics in Tennessee and Georgia.",
+      "Project CARE improves life for dialysis patients and supports clinic operations at Dialysis Clinic, Inc. As technical lead during a software engineering internship, I shipped renal nutrition guidance to 200+ patients across 15 clinics (280+ downloads) and replaced phone scheduling with self-service booking, with implementation across DCI clinics in Tennessee and Georgia.",
     details:
-      "About DCI: a leading nonprofit dialysis provider founded in 1971, operating 250+ clinics and serving 15,000+ patients. Results: 93% reduction in patient session cancellation time from 3.5 minutes to 15 seconds, clinic no-shows reduced from 13% to 2%, 200+ patients directly improved, 109+ App Store downloads, and 4,000+ impressions post-launch.",
+      "About DCI: a leading nonprofit dialysis provider founded in 1971, operating 250+ clinics and serving 15,000+ patients. Results: no-shows cut 11%, cancellation handling down from 3.5 minutes to 15 seconds, schedule changes reaching clinics in under 5 seconds through a Firestore listener at 99.6% uptime across the pilot, and 6 staff hours plus $1,100+ in wasted dialyzers freed every month.",
+    duration: "Aug 2024 - May 2025",
     tags: ["React Native", "Firebase", "Healthcare", "UI/UX", "Social Impact"],
+    keyMetrics: [
+      "200+ patients across 15 clinics",
+      "280+ downloads",
+      "No-shows cut 11%",
+      "Cancellation handling from 3.5 minutes to 15 seconds",
+      "Schedule changes delivered in under 5 seconds at 99.6% uptime",
+      "6 staff hours and $1,100+ in dialyzers saved monthly",
+    ],
     photos: [
       {
         url: "/DECADCI/dci-meeting-screenshot.jpeg",
@@ -325,14 +340,21 @@ export const projects: DetailItem[] = [
   {
     id: "elderhelper",
     title: "ElderHelper",
-    kicker: "Arduino, IoT, electronics, healthcare",
+    kicker: "1st of 800+ entries worldwide, IEEE SSCS Arduino Contest 2025",
     description:
-      "IoT fall detection box and pill dispenser built for the IEEE SSCS Arduino Competition.",
+      "Two-part Arduino device for seniors: an accelerometer fall detector with buzzer and phone alerts, and a servo pill dispenser.",
     overview:
-      "ElderHelper assists elderly individuals with medication management and safety monitoring. Inspired by electronics projects and built for the IEEE SSCS Arduino Competition, it combines fall detection, medication reminders, emergency alerts, and automated pill dispensing.",
+      "ElderHelper assists elderly individuals with medication management and safety monitoring. Built for the IEEE SSCS Arduino Contest, where it placed 1st of 800+ entries worldwide, it combines an accelerometer fall detector with buzzer and phone alerts, medication reminders, hydration alerts, and automated pill dispensing.",
     details:
-      "Technologies Used: Arduino Uno, MPU6050 accelerometer and gyroscope, servo motors, LCD display, buzzer, real-time clock module, C++. Technical Achievements: 95% fall detection accuracy, custom enclosure, and 72+ hours of optimized battery life.",
-    tags: ["Arduino", "IoT", "Electronics", "Healthcare", "C++"],
+      "Technologies Used: Arduino Uno, 3-axis MPU6050 accelerometer and gyroscope, servo motors, LCD display, buzzer, real-time clock module, Bluetooth, C++, and a Swift app. Technical Achievements: fall detection tuned to screen out sitting and stair steps, cutting false alarms to under 1 per day in testing; 12-hour dosing scheduled across 4 compartments on a real-time clock; hydration alerts on heat, which is attributed to 1 in 4 falls; 10 sensors linked over Bluetooth to a 5-screen Swift app showing live temperature, fall and dose logs, location, and prevention guides; custom enclosure and 72+ hours of optimized battery life.",
+    tags: ["Arduino", "IoT", "Electronics", "Healthcare", "C++", "Swift"],
+    keyMetrics: [
+      "1st of 800+ entries worldwide",
+      "Under 1 false alarm per day in testing",
+      "4-compartment, 12-hour dosing schedule",
+      "10 sensors over Bluetooth",
+      "5-screen Swift companion app",
+    ],
     photos: [
       {
         url: "/Robotics/IMG_5956.jpeg",
@@ -430,10 +452,10 @@ export const research: DetailItem[] = [
   },
   {
     id: "nfl-predictor",
-    title: "NFL Game Predictor",
-    kicker: "Research Paper Part 2, ML product build",
+    title: "AI-Based NFL Game Predictor",
+    kicker: "Research Paper Part 2, ML product build, 2025 - Present",
     description:
-      "Built a deployed prediction tool that turns the original NFL betting research into a custom-line model, API, and React website.",
+      "Six machine-learning models trained on 130+ pregame stats from 1,964 games, beating the betting spread on 53% of picks, served through an API and a React site.",
     overview:
       "This is the second phase of my NFL prediction research: instead of only comparing AI picks against analysts, I built a working product that predicts upcoming games with engineered football features, saved ML models, and user-entered sportsbook lines.",
     details:
@@ -469,13 +491,17 @@ export const research: DetailItem[] = [
     ],
     achievements: [
       "Extended the original AP Research paper into a live, usable machine-learning product.",
-      "Used walk-forward validation to reduce future-data leakage and evaluate model performance more realistically.",
+      "Engineered rolling team-form, injury, rest, and weather features, then cut 130 inputs to the 40 that carried the prediction.",
+      "Backtested season by season rather than on random splits, so no model ever trained on a game played after the one it predicted.",
       "Trained separate models for moneyline, spread, over/under, projected scores, and total residuals.",
     ],
     keyMetrics: [
-      "2018-2025 historical training data",
+      "1,964 games and 130+ pregame stats",
+      "53% of picks beat the betting spread",
+      "68% confidence-weighted accuracy across 570 unseen games",
+      "40 features kept from 130 inputs",
       "6 saved model artifacts",
-      "Daily data refresh workflow",
+      "Retrains in under 4 minutes each morning via GitHub Actions",
     ],
     challenges: [
       {
@@ -549,18 +575,16 @@ export const research: DetailItem[] = [
 export const internships: DetailItem[] = [
   {
     id: "karini",
-    title: "Full Stack Developer",
-    kicker: "Karini AI, Summer 2025",
+    title: "Software Engineering Intern",
+    kicker: "Karini AI, Summer 2026",
     description:
-      "Built AI-powered applications and web services, migrated agentic AI recipes to AWS Strands SDK architecture, and optimized enterprise platform performance.",
-    duration: "Jun 2025 - Aug 2025",
+      "Automated the migration of 600+ client configurations onto the AWS Strands SDK platform across 500+ live accounts with no downtime, and shipped onboarding and prompt-tool upgrades.",
+    duration: "Jun 2026 - Aug 2026",
     responsibilities: [
-      "Migrated agentic AI recipes to AWS Strands SDK",
-      "Improved frontend architecture",
-      "Developed React and Node.js web apps",
-      "Integrated AI/ML models",
-      "Built REST APIs",
-      "Collaborated on product features",
+      "Automated the migration of 600+ client configurations onto the AWS Strands SDK platform across 500+ live accounts, with no downtime.",
+      "Built an automated test suite that caught 13 critical conversion errors before they reached accounts and cut 3 weeks of manual review.",
+      "Consolidated setup across 4 product areas into a single guided flow, cutting time to a client's first live product by 50%.",
+      "Shipped 5 upgrades to the tool clients use to write and test AI prompts, cutting revisions needed before launch by 30%.",
     ],
     skills: [
       "React",
@@ -574,20 +598,21 @@ export const internships: DetailItem[] = [
       "Database Design",
     ],
     keyMetrics: [
-      "600+ AI recipes migrated",
-      "98.5% migration accuracy",
-      "12% performance improvement",
-      "500+ enterprise clients served",
+      "600+ client configurations migrated",
+      "500+ live accounts, no downtime",
+      "13 critical conversion errors caught before release",
+      "3 weeks of manual review cut",
+      "50% faster time to a client's first live product",
+      "30% fewer pre-launch prompt revisions",
     ],
     achievements: [
-      "Zero-downtime migration",
-      "UI adopted as company standard",
-      "New scalability benchmarks",
-      "Mentored junior developers",
-      "Reduced onboarding time by 50%",
+      "Zero-downtime migration across 500+ live accounts",
+      "Automated test suite for configuration conversion",
+      "Single guided setup flow across 4 product areas",
+      "5 upgrades shipped to the prompt authoring and testing tool",
     ],
     impactNarrative:
-      "The migrated AWS agents support enterprise automation workflows, reduce manual tasks, and improve Karini AI's user experience.",
+      "The migrated configurations run enterprise automation workflows for 500+ live accounts, and the new setup flow and prompt tooling cut the manual work clients need before launch.",
     photos: [
       { url: "/logos/karini-ai.svg", caption: "Karini AI logo." },
       {
@@ -598,18 +623,17 @@ export const internships: DetailItem[] = [
   },
   {
     id: "hsr",
-    title: "Full Stack Developer",
-    kicker: "HSR.Health, Summer 2025",
+    title: "Software Engineering Intern",
+    kicker: "HSR.health, Summer 2025",
     description:
-      "Developed geospatial health risk visualization tools for analyzing public health impacts of ocean pollution and supporting policy recommendations.",
-    duration: "May 2025 - Jul 2025",
+      "Built Poseidon, an interactive map of 8M tons of plastic across 27% of the world's oceans and the 250M coastal residents at risk.",
+    duration: "Jun 2025 - Aug 2025",
     responsibilities: [
-      "Designed geospatial processing algorithms",
-      "Created D3.js visualizations",
-      "Built Express REST endpoints",
-      "QA-tested environmental pipelines",
-      "Validated data with researchers",
-      "Prepared stakeholder documentation",
+      "Built Poseidon, an interactive map of 8M tons of plastic across 27% of the world's oceans and 250M coastal residents at risk.",
+      "Automated quality checks across 12 mapping and environmental datasets, cutting processing time 40% on every run.",
+      "Ranked 140 coastal regions by plastic exposure, flagging the top 20 as first priority for the next round of cleanup funding.",
+      "Created D3.js visualizations and built Express REST endpoints for the research team.",
+      "Validated data with researchers and prepared stakeholder documentation.",
     ],
     skills: [
       "Node.js",
@@ -621,25 +645,62 @@ export const internships: DetailItem[] = [
       "Geospatial Analysis",
     ],
     keyMetrics: [
-      "27% of global oceans analyzed",
-      "Large-scale data processing pipeline",
-      "API test coverage",
-      "Real-time visualization dashboard",
+      "8M tons of plastic mapped",
+      "27% of the world's oceans",
+      "250M coastal residents at risk",
+      "12 datasets with automated quality checks",
+      "40% faster processing on every run",
+      "140 coastal regions ranked, top 20 flagged",
     ],
     achievements: [
-      "Comprehensive health risk visualization",
+      "Poseidon interactive ocean-plastic map",
+      "Automated QA across 12 mapping and environmental datasets",
+      "Priority list of 20 coastal regions for cleanup funding",
       "Environmental data presentation standards",
-      "Scalable research platform",
-      "40% processing optimization",
-      "Policy recommendation support",
     ],
     impactNarrative:
-      "The Poseidon tools advanced ocean plastic pollution monitoring and helped researchers better understand pollution patterns.",
+      "Poseidon gave researchers a ranked view of coastal plastic exposure and flagged the 20 regions most in need of the next round of cleanup funding.",
     photos: [
       { url: "/logos/hsr-health.png", caption: "HSR.Health logo." },
       {
         url: "/DECADCI/project-care-impact-report.jpeg",
         caption: "Environmental health dashboard reference.",
+      },
+    ],
+  },
+  {
+    id: "dci",
+    title: "Software Engineering Intern, Project CARE Technical Lead",
+    kicker: "Dialysis Clinic, Inc., Nashville, 2024 - 2025",
+    description:
+      "Led Project CARE as technical lead, shipping renal nutrition guidance to 200+ patients across 15 clinics and replacing phone scheduling with self-service booking.",
+    duration: "Aug 2024 - May 2025",
+    responsibilities: [
+      "Led Project CARE as technical lead, shipping renal nutrition guidance to 200+ patients across 15 clinics, with 280+ downloads.",
+      "Replaced phone scheduling with self-service booking, cutting no-shows 11% and cancellation handling from 3.5 minutes to 15 seconds.",
+      "Delivered schedule changes to clinics in under 5 seconds through a Firestore listener, holding 99.6% uptime across the pilot.",
+      "Shifted cancellations and rebooking to patient self-service, freeing 6 staff hours and $1,100+ in wasted dialyzers every month.",
+    ],
+    skills: ["React Native", "Firebase", "Firestore", "Healthcare", "UI/UX"],
+    keyMetrics: [
+      "200+ patients across 15 clinics",
+      "280+ downloads",
+      "No-shows cut 11%",
+      "Cancellation handling from 3.5 minutes to 15 seconds",
+      "99.6% uptime across the pilot",
+      "6 staff hours and $1,100+ in dialyzers saved monthly",
+    ],
+    impactNarrative:
+      "Project CARE moved scheduling and nutrition guidance into patients' hands, which cut no-shows and freed clinic staff time every month.",
+    links: [{ label: "Project CARE case study", url: "#/projects/care" }],
+    photos: [
+      {
+        url: "/DECADCI/IMG_2568.jpeg",
+        caption: "Project CARE team at DCI headquarters.",
+      },
+      {
+        url: "/DECADCI/dci-meeting-screenshot.jpeg",
+        caption: "DCI executive meeting.",
       },
     ],
   },
@@ -729,17 +790,16 @@ export const leadership: DetailItem[] = [
   },
   {
     id: "robotics-club",
-    title: "Robotics Club Co-President",
-    kicker: "Ravenwood High School Robotics Club, 2023-2025",
+    title: "Robotics Club Coding Co-President",
+    kicker: "Ravenwood High School Robotics Club, 2024-2026",
     description:
-      "Mentored 20+ underclassmen, led four competitive teams to VEX Worlds for four consecutive years, earned 25+ awards, raised $5,000 through a STEM camp, and secured Qentelli sponsorship.",
-    duration: "Sep 2023 - Present",
+      "Wrote and taught a 10-week C++, robot control, navigation, and CAD curriculum for 18+ first-time builders, led 4 programmers on Monte Carlo localization, and tuned the autonomous routine from 6 of 10 scoring runs to 9 of 10.",
+    duration: "Aug 2024 - May 2026",
     responsibilities: [
-      "Technical training curriculum",
-      "$15,000+ inventory",
-      "Competition logistics",
-      "Fundraising",
-      "Recruitment and social media",
+      "Wrote and taught a 10-week curriculum in C++, robot control, navigation, and CAD, training 18+ first-time student builders.",
+      "Led 4 programmers writing the robot's self-positioning code (Monte Carlo localization), cutting error on the field to under 2 cm.",
+      "Tuned the 15-second autonomous routine with PID heading control, raising its scoring consistency from 6 of 10 runs to 9 of 10.",
+      "Managed $15,000+ of inventory, competition logistics, fundraising, recruitment, and social media.",
     ],
     skills: [
       "Technical Mentorship",
@@ -750,11 +810,12 @@ export const leadership: DetailItem[] = [
       "Curriculum Development",
     ],
     keyMetrics: [
-      "20+ mentees",
+      "18+ first-time builders trained",
+      "Field localization error under 2 cm",
+      "Autonomous consistency from 6 of 10 runs to 9 of 10",
       "4 consecutive World Championships",
       "25+ awards",
-      "$5,000 raised",
-      "Corporate sponsorship",
+      "$5,000 raised through a STEM camp",
     ],
     achievements: [
       "Most successful robotics program in school history",
@@ -820,18 +881,16 @@ export const leadership: DetailItem[] = [
   },
   {
     id: "mun",
-    title: "Model UN Secretary General",
-    kicker: "Ravenwood High School Model UN, 2022-2023",
+    title: "Model UN Secretary-General",
+    kicker: "Tennessee Model United Nations, 2024-2025",
     description:
-      "Led 15+ Secretariat members, organized three Model UN conferences, led 800+ delegates, delivered two keynotes, led two Plenary summits, secured 500+ voter pledges, and received the MUN Nobel Peace Prize.",
-    duration: "Jul 2022 - Jun 2023",
+      "Elected Secretary-General (Head of Conference), leading 30 student officers running a three-day, 900-delegate, 12-committee conference across 22 Tennessee schools, raising $25,000 and registering 550+ delegates to vote.",
+    duration: "Nov 2024 - Nov 2025",
     responsibilities: [
-      "Secretariat training",
-      "Conference themes and crisis scenarios",
-      "Venue logistics",
-      "Delegate materials",
-      "Registration",
-      "QR-code voter registration campaign",
+      "Elected to lead 30 student officers running a three-day, 900-delegate, 12-committee conference across 22 Tennessee schools.",
+      "Raised $25,000 in sponsorship and registration revenue, covering 40% of total conference costs and holding delegate fees at $225.",
+      "Registered 550+ delegates to vote (61% of attendance) through 6 nonpartisan sign-up tables staffed between every committee session.",
+      "Set conference themes and crisis scenarios, delegate materials, venue logistics, and registration.",
     ],
     skills: [
       "Diplomacy",
@@ -841,12 +900,12 @@ export const leadership: DetailItem[] = [
       "Digital Campaign Management",
     ],
     keyMetrics: [
-      "800+ delegates",
-      "15+ Secretariat members",
-      "500+ voter pledges",
+      "900 delegates",
+      "30 student officers",
+      "12 committees across 22 schools",
+      "$25,000 raised, 40% of conference costs",
+      "550+ delegates registered to vote (61% of attendance)",
       "2 keynotes",
-      "2 Plenary summits",
-      "3 conferences",
       "MUN Nobel Peace Prize",
     ],
     achievements: [
@@ -866,11 +925,11 @@ export const leadership: DetailItem[] = [
   },
   {
     id: "nriva",
-    title: "NRIVA Youth Committee National Lead",
-    kicker: "North Region Indian Volunteers Association, 2023-Present",
+    title: "NRIVA National Youth Committee Co-Chair",
+    kicker: "Non-Resident Indian Vasavi Association, 2022-2025",
     description:
-      "Orchestrated a $105,000 campaign to provide 10,000 backpacks to underserved children across all 50 states while directing 75+ state-level youth coordinators and serving 15,000+ families annually.",
-    duration: "Jun 2023 - Present",
+      "Coordinated the $105,000 Back2School campaign, building the strategy, forms, and targets that 30 state leads ran their drives from, and sourced and routed 10,000 backpacks to children in 26 states.",
+    duration: "Aug 2022 - Jan 2025",
     responsibilities: [
       "Roadmaps and KPIs",
       "Volunteer recruitment and training",
@@ -884,16 +943,15 @@ export const leadership: DetailItem[] = [
       "Fundraising",
     ],
     keyMetrics: [
-      "$105K campaign",
+      "$105,000 Back2School campaign",
       "10,000 backpacks",
-      "75+ coordinators",
-      "15,000+ families",
-      "50-state coverage",
+      "26 states",
+      "30 state leads",
+      "30% off vendor pricing through bulk buys",
     ],
     achievements: [
       "Largest youth-led NRIVA education support program",
       "Organization-wide fundraising strategy",
-      "50-state volunteer network",
       "Replicable program model",
       "95% volunteer retention",
       "200+ partner schools and organizations",
@@ -912,23 +970,39 @@ export const leadership: DetailItem[] = [
   },
 ]
 
-export const technicalSkills = [
-  "React",
-  "CSS",
-  "JavaScript",
-  "Python",
-  "HTML",
-  "Google Firebase",
-  "GSuite",
-  "C++",
-  "AWS Strands SDK",
-  "Claude AI",
-  "TensorFlow",
-  "OpenCV",
-  "Node.js",
-  "D3.js",
-  "API Testing",
+export const skillGroups = [
+  {
+    label: "Languages",
+    items: [
+      "Python",
+      "C++",
+      "Java",
+      "HTML/CSS",
+      "Swift",
+      "JavaScript",
+      "SQL",
+      "React",
+    ],
+  },
+  {
+    label: "Data / ML / Cloud",
+    items: [
+      "scikit-learn",
+      "AWS",
+      "Firebase",
+      "Arduino",
+      "Git",
+      "Google Workspace",
+      "Pandas",
+      "NumPy",
+      "Node.js",
+      "FastAPI",
+      "Rasterio",
+    ],
+  },
 ]
+
+export const technicalSkills = skillGroups.flatMap((group) => group.items)
 
 export type CardInsight = {
   role: string
@@ -952,22 +1026,26 @@ export const cardInsights: Record<string, CardInsight> = {
   investedu: {
     role: "Founder / builder",
     impact:
-      "Helped young adults learn investing through calculators, quizzes, budgeting tools, and AI support.",
+      "Helped young adults learn investing through Desmos-based market simulations, adaptive quizzes, budgeting tools, and AI support, reaching 28,000 users.",
     build:
-      "Built compound-interest simulations, glossary flows, comparison tools, and learning modules around finance fundamentals.",
+      "Built compound-interest simulations, a spaced-repetition engine that reweights questions by past misses, glossary flows, comparison tools, and learning modules around finance fundamentals.",
     direction:
       "Education products interest me most when they turn intimidating concepts into something people can actually use.",
-    metrics: ["500+ beta users", "2.8K monthly views", "+25% comprehension"],
+    metrics: ["28,000 users", "45 teachers", "+25% comprehension"],
   },
   care: {
-    role: "Healthcare product lead",
+    role: "Technical lead, Dialysis Clinic, Inc.",
     impact:
-      "Supported dialysis patients and clinic staff through meal planning, scheduling, and cancellation workflows.",
+      "Shipped renal nutrition guidance and self-service scheduling to 200+ dialysis patients across 15 clinics, cutting no-shows 11%.",
     build:
-      "Translated clinic needs into patient-facing app features, Firebase-backed workflows, and implementation materials.",
+      "Translated clinic needs into patient-facing app features, Firestore-backed scheduling that reached clinics in under 5 seconds, and implementation materials.",
     direction:
       "This is the clearest example of my interest in software that improves real operations and care delivery.",
-    metrics: ["200+ patients", "13% to 2% no-shows", "109+ downloads"],
+    metrics: [
+      "200+ patients, 15 clinics",
+      "No-shows cut 11%",
+      "280+ downloads",
+    ],
   },
   dialysense: {
     role: "Wearable healthcare founder",
@@ -982,12 +1060,16 @@ export const cardInsights: Record<string, CardInsight> = {
   elderhelper: {
     role: "Embedded systems builder",
     impact:
-      "Explored medication safety and fall detection through a physical IoT prototype for elderly care.",
+      "Won 1st of 800+ entries worldwide at the IEEE SSCS Arduino Contest 2025 with a fall detector and pill dispenser for seniors.",
     build:
-      "Combined Arduino, motion sensing, servo dispensing, alerts, and a custom enclosure into one working device.",
+      "Tuned 3-axis fall detection to screen out sitting and stair steps, scheduled 12-hour dosing across 4 compartments on a real-time clock, and linked 10 sensors over Bluetooth to a 5-screen Swift app.",
     direction:
       "It pushed me beyond web apps into hardware, reliability, and human-centered assistive technology.",
-    metrics: ["95% fall detection", "72+ hr battery", "Arduino/C++"],
+    metrics: [
+      "1st of 800+ worldwide",
+      "Under 1 false alarm per day",
+      "10 Bluetooth sensors",
+    ],
   },
   "nfl-ai": {
     role: "ML researcher",
@@ -1002,12 +1084,12 @@ export const cardInsights: Record<string, CardInsight> = {
   "nfl-predictor": {
     role: "Research-to-product builder",
     impact:
-      "Turned the original NFL betting research into a deployed predictor for upcoming games and custom sportsbook lines.",
+      "Turned the original NFL betting research into a deployed predictor: six models trained on 130+ pregame stats from 1,964 games, beating the spread on 53% of picks.",
     build:
-      "Built walk-forward ML training, saved scikit-learn models, a FastAPI backend, React frontend, and automated data refreshes.",
+      "Engineered rolling team-form, injury, rest, and weather features, cut 130 inputs to 40, backtested season by season, and served the models through FastAPI, a React frontend, and a GitHub Action that retrains in under 4 minutes each morning.",
     direction:
       "This is the applied follow-through: taking a research question and making it usable as software.",
-    metrics: ["6 model artifacts", "FastAPI + React", "Daily refresh"],
+    metrics: ["53% vs the spread", "68% weighted accuracy", "6 models"],
   },
   "exercise-ai": {
     role: "Computer vision researcher",
@@ -1020,24 +1102,42 @@ export const cardInsights: Record<string, CardInsight> = {
     metrics: ["92% accuracy", "YOLO keypoints", "OpenCV"],
   },
   karini: {
-    role: "Full-stack AI engineering",
+    role: "Software engineering intern",
     impact:
-      "Helped migrate enterprise automation recipes and improve platform performance for AI workflows.",
+      "Automated the migration of 600+ client configurations onto the AWS Strands SDK platform across 500+ live accounts with no downtime.",
     build:
-      "Worked across React, Node, Python, Claude AI, AWS Strands SDK migration, and integration details.",
+      "Built the automated test suite that caught 13 critical conversion errors, consolidated setup across 4 product areas into one guided flow, and shipped 5 upgrades to the prompt authoring tool.",
     direction:
       "This connected my product instincts with production AI infrastructure and enterprise reliability.",
-    metrics: ["600+ recipes", "98.5% accuracy", "+12% performance"],
+    metrics: [
+      "600+ configurations",
+      "500+ live accounts",
+      "50% faster onboarding",
+    ],
   },
   hsr: {
-    role: "Health analytics engineer",
+    role: "Software engineering intern",
     impact:
-      "Built geospatial health-risk visualization support for ocean pollution and environmental policy work.",
+      "Built Poseidon, an interactive map of 8M tons of plastic across 27% of the world's oceans and the 250M coastal residents at risk.",
     build:
-      "Worked on data processing, D3 visualizations, Express endpoints, QA, and stakeholder documentation.",
+      "Automated quality checks across 12 mapping and environmental datasets, ranked 140 coastal regions by plastic exposure, and built the D3 visualizations and Express endpoints behind the map.",
     direction:
       "It sits at the intersection of data infrastructure, public health, and environmental decision-making.",
-    metrics: ["27% oceans analyzed", "D3.js", "API testing"],
+    metrics: [
+      "27% of oceans mapped",
+      "140 regions ranked",
+      "40% faster processing",
+    ],
+  },
+  dci: {
+    role: "Software engineering intern and technical lead",
+    impact:
+      "Led Project CARE at Dialysis Clinic, Inc., shipping renal nutrition guidance to 200+ patients across 15 clinics and replacing phone scheduling with self-service booking.",
+    build:
+      "Built Firestore-backed scheduling that reached clinics in under 5 seconds at 99.6% uptime, and moved cancellations and rebooking to patient self-service.",
+    direction:
+      "This is the clearest example of my interest in software that improves real operations and care delivery.",
+    metrics: ["200+ patients, 15 clinics", "No-shows cut 11%", "99.6% uptime"],
   },
   robotix: {
     role: "Robotics instructor",
@@ -1060,14 +1160,18 @@ export const cardInsights: Record<string, CardInsight> = {
     metrics: ["200+ members", "40+ events", "150+ awards"],
   },
   "robotics-club": {
-    role: "Robotics co-president",
+    role: "Coding co-president",
     impact:
-      "Mentored teams, raised funding, and helped sustain a Worlds-level competitive robotics program.",
+      "Trained 18+ first-time builders and led the programming team of a Worlds-level competitive robotics program.",
     build:
-      "Built training systems, managed inventory, coordinated travel, ran fundraising, and mentored programmers.",
+      "Wrote a 10-week C++, control, navigation, and CAD curriculum, led 4 programmers on Monte Carlo localization to under 2 cm of field error, and tuned the PID autonomous routine to 9 of 10 scoring runs.",
     direction:
       "Robotics taught me how technical execution, team culture, and funding all have to work together.",
-    metrics: ["4x Worlds", "25+ awards", "$5K raised"],
+    metrics: [
+      "4x Worlds",
+      "Under 2 cm localization",
+      "9 of 10 autonomous runs",
+    ],
   },
   woodland: {
     role: "Middle-school mentor",
@@ -1080,24 +1184,24 @@ export const cardInsights: Record<string, CardInsight> = {
     metrics: ["20+ students", "2 Worlds teams", "Reusable curriculum"],
   },
   mun: {
-    role: "Secretary General",
+    role: "Secretary-General",
     impact:
-      "Led conferences, Secretariat members, civic engagement work, and hundreds of delegates.",
+      "Led 30 student officers running a three-day, 900-delegate, 12-committee conference across 22 Tennessee schools.",
     build:
-      "Managed conference themes, crisis scenarios, delegate guides, logistics, and voter-registration systems.",
+      "Raised $25,000 in sponsorship and registration revenue, set themes and crisis scenarios, and ran 6 nonpartisan sign-up tables that registered 550+ delegates to vote.",
     direction:
       "Model UN trained the communication side of leadership: clarity, diplomacy, and large-event execution.",
-    metrics: ["800+ delegates", "500+ pledges", "3 conferences"],
+    metrics: ["900 delegates", "$25,000 raised", "550+ voter registrations"],
   },
   nriva: {
-    role: "National youth lead",
+    role: "National youth committee co-chair",
     impact:
-      "Coordinated a nationwide backpack campaign supporting underserved students and families.",
+      "Coordinated the $105,000 Back2School campaign that put 10,000 backpacks in the hands of children across 26 states.",
     build:
-      "Managed coordinators, volunteer systems, fundraising plans, social campaigns, and partner outreach.",
+      "Built the strategy, forms, and targets that 30 state leads ran their drives from, and negotiated 30% off vendor pricing through bulk buys.",
     direction:
       "This is where logistics, community service, and national-scale coordination meet.",
-    metrics: ["$105K campaign", "10K backpacks", "75+ coordinators"],
+    metrics: ["$105K campaign", "10K backpacks", "26 states"],
   },
 }
 
