@@ -13,6 +13,7 @@ type ThemeProviderProps = {
 
 type ThemeProviderState = {
   theme: Theme
+  resolvedTheme: ResolvedTheme
   setTheme: (theme: Theme) => void
 }
 
@@ -77,6 +78,16 @@ function isEditableTarget(target: EventTarget | null) {
   return false
 }
 
+function subscribeToSystemTheme(onChange: () => void) {
+  const mediaQuery = window.matchMedia(COLOR_SCHEME_QUERY)
+  mediaQuery.addEventListener("change", onChange)
+  return () => mediaQuery.removeEventListener("change", onChange)
+}
+
+function useSystemTheme(): ResolvedTheme {
+  return React.useSyncExternalStore(subscribeToSystemTheme, getSystemTheme)
+}
+
 export function ThemeProvider({
   children,
   defaultTheme = "system",
@@ -92,6 +103,8 @@ export function ThemeProvider({
 
     return defaultTheme
   })
+  const systemTheme = useSystemTheme()
+  const resolvedTheme: ResolvedTheme = theme === "system" ? systemTheme : theme
 
   const setTheme = React.useCallback(
     (nextTheme: Theme) => {
@@ -207,9 +220,10 @@ export function ThemeProvider({
   const value = React.useMemo(
     () => ({
       theme,
+      resolvedTheme,
       setTheme,
     }),
-    [theme, setTheme]
+    [theme, resolvedTheme, setTheme]
   )
 
   return (

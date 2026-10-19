@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState, type ReactNode } from "react"
 
+import { useTheme } from "@/components/theme-provider"
 import {
   assetUrl,
   awardSpotlights,
@@ -18,6 +19,15 @@ import { cn } from "@/lib/utils"
 
 /* ---------------------------------------------------------------- content */
 
+// Section and item order follows the resume: experience, projects, research,
+// leadership, then awards. Items not named here sort last, in data order.
+function orderBy<T extends { id: string }>(items: T[], ids: string[]) {
+  const rank = new Map(ids.map((id, index) => [id, index]))
+  return [...items].sort(
+    (a, b) => (rank.get(a.id) ?? ids.length) - (rank.get(b.id) ?? ids.length)
+  )
+}
+
 type WorkSection = {
   id: string
   label: string
@@ -28,12 +38,25 @@ type WorkSection = {
 
 const workSections: WorkSection[] = [
   {
+    id: "experience",
+    label: "Experience",
+    noun: "roles",
+    description:
+      "Practical work across AI infrastructure, health analytics, and STEM education.",
+    items: orderBy(internships, ["karini", "hsr", "robotix"]),
+  },
+  {
     id: "projects",
     label: "Projects",
     noun: "case studies",
     description:
       "Finance, healthcare, and hardware projects, each written up as a short case study.",
-    items: projects,
+    items: orderBy(projects, [
+      "elderhelper",
+      "investedu",
+      "care",
+      "dialysense",
+    ]),
   },
   {
     id: "research",
@@ -41,15 +64,7 @@ const workSections: WorkSection[] = [
     noun: "studies",
     description:
       "Academic explorations in prediction, computer vision, and model evaluation.",
-    items: research,
-  },
-  {
-    id: "experience",
-    label: "Experience",
-    noun: "roles",
-    description:
-      "Practical work across AI infrastructure, health analytics, and STEM education.",
-    items: internships,
+    items: orderBy(research, ["nfl-predictor", "nfl-ai", "exercise-ai"]),
   },
   {
     id: "leadership",
@@ -57,7 +72,13 @@ const workSections: WorkSection[] = [
     noun: "programs",
     description:
       "Student organizations, civic engagement, robotics mentorship, and nationwide volunteer coordination.",
-    items: leadership,
+    items: orderBy(leadership, [
+      "robotics-club",
+      "mun",
+      "nriva",
+      "tsa",
+      "woodland",
+    ]),
   },
 ]
 
@@ -112,6 +133,13 @@ const pages: Page[] = [
     count: `${section.items.length} ${section.noun}`,
   })),
   {
+    id: "awards",
+    label: "Awards",
+    blurb:
+      "Competition results across entrepreneurship, DECA, robotics, hardware engineering, TSA, and academics.",
+    count: `${awardSpotlights.length} awards`,
+  },
+  {
     id: "contact",
     label: "Contact",
     blurb: "Email, and where else to find me.",
@@ -165,14 +193,12 @@ function useRoute() {
     return () => window.removeEventListener("hashchange", onChange)
   }, [])
 
-  const route = parseRoute(hash)
-
   useEffect(() => {
     document.title = routeTitle(parseRoute(hash))
     window.scrollTo(0, 0)
   }, [hash])
 
-  return route
+  return { hash, route: parseRoute(hash) }
 }
 
 /* ---------------------------------------------------------------- helpers */
@@ -196,7 +222,7 @@ function fitsContain(photo: GalleryImage) {
 /* ---------------------------------------------------------------- app */
 
 export default function App() {
-  const route = useRoute()
+  const { hash, route } = useRoute()
 
   return (
     <div className="mx-auto max-w-3xl px-6 pt-8 pb-16 sm:pt-12 sm:pb-24">
@@ -207,9 +233,11 @@ export default function App() {
         Skip to content
       </a>
       <SiteHeader route={route} />
-      <main id="main">
+      {/* Keyed on the hash so each page mounts fresh and fades up. */}
+      <main id="main" key={hash} className="motion-safe:animate-fade-up">
         {route.kind === "home" && <HomePage />}
         {route.kind === "page" && route.page.id === "about" && <AboutPage />}
+        {route.kind === "page" && route.page.id === "awards" && <AwardsPage />}
         {route.kind === "page" && route.page.id === "contact" && (
           <ContactPage />
         )}
@@ -239,14 +267,17 @@ function SiteHeader({ route }: { route: Route }) {
         : null
 
   return (
-    <header className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
-      <a
-        href="#/"
-        className="font-medium hover:text-accent"
-        aria-current={route.kind === "home" ? "page" : undefined}
-      >
-        Vihaan Bussa
-      </a>
+    <header className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
+      <div className="flex items-center gap-4">
+        <a
+          href="#/"
+          className="font-medium transition-colors hover:text-accent"
+          aria-current={route.kind === "home" ? "page" : undefined}
+        >
+          Vihaan Bussa
+        </a>
+        <ThemeSwitch />
+      </div>
       <nav
         aria-label="Main navigation"
         className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs leading-6 tabular-nums"
@@ -259,10 +290,8 @@ function SiteHeader({ route }: { route: Route }) {
               href={`#/${page.id}`}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "underline-offset-[6px] hover:text-foreground",
-                active
-                  ? "text-foreground underline decoration-accent decoration-2"
-                  : "text-muted-foreground"
+                "nav-underline pb-0.5 hover:text-foreground",
+                active ? "text-foreground" : "text-muted-foreground"
               )}
             >
               <span className="text-muted-foreground/70">{pad(index + 1)}</span>{" "}
@@ -272,6 +301,32 @@ function SiteHeader({ route }: { route: Route }) {
         })}
       </nav>
     </header>
+  )
+}
+
+function ThemeSwitch() {
+  const { resolvedTheme, setTheme } = useTheme()
+  const dark = resolvedTheme === "dark"
+
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={dark}
+      aria-label="Dark mode"
+      onClick={() => setTheme(dark ? "light" : "dark")}
+      className="group/switch inline-flex items-center gap-2 font-mono text-xs leading-6 text-muted-foreground transition-colors hover:text-foreground"
+    >
+      <span className="relative inline-block h-4 w-7 rounded-full border border-border bg-muted transition-colors group-hover/switch:border-muted-foreground/60">
+        <span
+          className={cn(
+            "absolute top-0.5 left-0.5 size-2.5 rounded-full bg-foreground transition-transform duration-200 ease-out",
+            dark && "translate-x-3"
+          )}
+        />
+      </span>
+      <span className="hidden sm:inline">{dark ? "Dark" : "Light"}</span>
+    </button>
   )
 }
 
@@ -295,8 +350,6 @@ function SiteFooter() {
         />
         Computer Science freshman at UC Berkeley
       </span>
-      <span aria-hidden="true">·</span>
-      <span>Press d for dark mode</span>
     </footer>
   )
 }
@@ -319,7 +372,7 @@ function TextLink({
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
       className={cn(
-        "text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent",
+        "text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:decoration-accent",
         className
       )}
     >
@@ -390,7 +443,7 @@ function Row({
             aria-hidden="true"
             className={cn(
               mono,
-              "text-accent group-hover:translate-x-0.5 motion-safe:transition-transform"
+              "text-accent transition-transform duration-200 ease-out group-hover:translate-x-0.5"
             )}
           >
             →
@@ -401,8 +454,15 @@ function Row({
   )
 
   if (href) {
+    // Linked rows tint on hover, bleeding slightly past the hairlines.
     return (
-      <a href={href} className={cn(className, "group")}>
+      <a
+        href={href}
+        className={cn(
+          className,
+          "group -mx-3 rounded-sm px-3 transition-colors duration-200 hover:bg-muted/70"
+        )}
+      >
         {inner}
       </a>
     )
@@ -412,7 +472,7 @@ function Row({
 
 function RowTitle({ children }: { children: ReactNode }) {
   return (
-    <span className="font-medium underline decoration-accent/40 underline-offset-4 group-hover:text-accent group-hover:decoration-accent">
+    <span className="font-medium underline decoration-accent/40 underline-offset-4 transition-colors group-hover:text-accent group-hover:decoration-accent">
       {children}
     </span>
   )
@@ -431,14 +491,17 @@ function Pager({
       className={cn(mono, "mt-16 flex justify-between gap-6")}
     >
       {prev ? (
-        <a href={prev.href} className="hover:text-foreground">
+        <a href={prev.href} className="transition-colors hover:text-foreground">
           ← {prev.label}
         </a>
       ) : (
         <span />
       )}
       {next && (
-        <a href={next.href} className="text-right hover:text-foreground">
+        <a
+          href={next.href}
+          className="text-right transition-colors hover:text-foreground"
+        >
           {next.label} →
         </a>
       )}
@@ -483,7 +546,7 @@ function Thumb({ item }: { item: DetailItem }) {
       alt=""
       loading="lazy"
       className={cn(
-        "size-12 shrink-0 rounded-sm object-cover sm:size-14",
+        "size-12 shrink-0 rounded-sm object-cover saturate-[.85] transition-[filter] duration-300 group-hover:saturate-100 sm:size-14",
         isLogo && "bg-muted object-contain p-2",
         !isLogo && fitsContain(first) && "bg-muted object-contain p-1",
         logoBackdrop[item.id]
@@ -547,21 +610,6 @@ function HomePage() {
           >
             <RowTitle>{page.label}</RowTitle>
             <p className="mt-1 text-sm text-muted-foreground">{page.blurb}</p>
-          </Row>
-        ))}
-      </Ledger>
-
-      <Ledger
-        title="Selected awards"
-        count={`${awardSpotlights.length} awards`}
-        description="Major awards across entrepreneurship, DECA, robotics, hardware engineering, TSA, and academics."
-      >
-        {awardSpotlights.map((award) => (
-          <Row key={award.title} label={award.year}>
-            <p className="font-medium">{award.title}</p>
-            <p className="mt-1 text-sm leading-6 text-muted-foreground">
-              {award.context}
-            </p>
           </Row>
         ))}
       </Ledger>
@@ -669,6 +717,24 @@ function WorkPage({ section }: { section: WorkSection }) {
   )
 }
 
+function AwardsPage() {
+  const page = pages.find((entry) => entry.id === "awards") ?? pages[0]
+  return (
+    <PageFrame page={page}>
+      <Ledger>
+        {awardSpotlights.map((award) => (
+          <Row key={award.title} label={award.year}>
+            <p className="font-medium">{award.title}</p>
+            <p className="mt-1 text-sm leading-6 text-muted-foreground">
+              {award.context}
+            </p>
+          </Row>
+        ))}
+      </Ledger>
+    </PageFrame>
+  )
+}
+
 function ContactPage() {
   const page = pages[pages.length - 1]
   return (
@@ -706,7 +772,10 @@ function DetailPage({
   return (
     <div className="mt-14 sm:mt-20">
       <p className={mono}>
-        <a href={`#/${section.id}`} className="hover:text-foreground">
+        <a
+          href={`#/${section.id}`}
+          className="transition-colors hover:text-foreground"
+        >
           ← {section.label}
         </a>
         <span className="mx-2" aria-hidden="true">
