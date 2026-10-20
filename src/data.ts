@@ -40,8 +40,8 @@ export const awardSpotlights = [
   {
     title: "1st in IEEE SSCS International Arduino Competition",
     context:
-      "I won $1,000 and the Most Engaging Presentation Award in a field of 800+ submissions from 40+ countries.",
-    highlights: ["$1,000 in prize money", "40+ countries", "800+ submissions"],
+      "I won $1,000 and the Overall Impactful Presentation Award in a field of 800+ submissions worldwide.",
+    highlights: ["$1,000 in prize money", "800+ submissions"],
     year: "2025",
   },
   {
