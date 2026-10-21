@@ -76,10 +76,10 @@ export const awardSpotlights = [
     year: "2022-2025",
   },
   {
-    title: "National Merit Scholar",
-    context: "I scored in the top 1% of PSAT/NMSQT students nationwide.",
+    title: "National Merit Finalist",
+    context: "I scored in the top 1% of PSAT/NMSQT takers.",
     highlights: ["top 1%"],
-    year: "2025",
+    year: "2026",
   },
   {
     title: "YC Startup School",
@@ -162,10 +162,7 @@ export const projects: DetailItem[] = [
         caption: "Analytics dashboard with user engagement metrics.",
       },
     ],
-    links: [
-      { label: "Visit InvestEDU", url: "https://investedu.me" },
-      { label: "GitHub", url: "https://github.com/Vihaanbussa" },
-    ],
+    links: [{ label: "GitHub", url: "https://github.com/Vihaanbussa" }],
     future: [
       "AI-powered financial coaching",
       "Banking API integration",
@@ -752,10 +749,10 @@ export const leadership: DetailItem[] = [
   {
     id: "tsa",
     title: "Technology Student Association Vice President",
-    kicker: "Technology Student Association, 2022-2025",
+    kicker: "Technology Student Association, 2024-2026",
     description:
       "I co-led a 200+ member STEM competition club, coordinated strategy for 40+ events, and helped the club collect 150+ awards.",
-    duration: "Aug 2022 - Present",
+    duration: "May 2024 - May 2026",
     responsibilities: [
       "I ran event schedules, budgets, and logistics",
       "I handled sponsorship outreach",
@@ -847,10 +844,10 @@ export const leadership: DetailItem[] = [
   {
     id: "woodland",
     title: "Woodland Middle School Robotics Club Leader",
-    kicker: "Woodland Middle School, Aug 2022-Present",
+    kicker: "Woodland Middle School, 2022-2026",
     description:
       "I started a STEM program for 20+ middle schoolers and helped two teams qualify for the VEX IQ World Championships.",
-    duration: "Aug 2022 - Present",
+    duration: "Aug 2022 - May 2026",
     responsibilities: [
       "I wrote age-appropriate curriculum",
       "I coordinated with the school and parents",
